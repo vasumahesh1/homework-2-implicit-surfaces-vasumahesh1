@@ -1,46 +1,87 @@
-# CIS-566-Project-2
-https://github.com/CIS-566-2018/homework-2-ray-marching-implicit-surfaces
+# Le Chest - Homework 2
 
-## Objective
-- Gain more experience with GLSL Shader writing and raymarching
-- Experiment with procedural modeling and animation of scenes
+![](./readme_resources/proc_chest_gif_2.gif)
 
-## Running the Code
+![](./readme_resources/title_image.png)
 
-1. [Install Node.js](https://nodejs.org/en/download/). Node.js is a JavaScript runtime. It basically allows you to run JavaScript when not in a browser. For our purposes, this is not necessary. The important part is that with it comes `npm`, the Node Package Manager. This allows us to easily declare and install external dependencies such as [dat.GUI](https://workshop.chromeexperiments.com/examples/gui/#1--Basic-Usage), and [glMatrix](http://glmatrix.net/).
+## Timelapse
 
-2. Using a command terminal, run `npm install` in the root directory of your project. This will download all of those dependencies.
+![](./readme_resources/process.gif)
 
-3. Do either of the following (but we highly recommend the first one for reasons we will explain later).
+## Important Notes
 
-    a. Run `npm start` and then go to `localhost:5660` in your web browser
+This wont run on my Mac. It probably crashes because the file is pretty big and the instructions generated are way too much for the gpu to handle. Make sure you have a decent graphic card to run this. (For a reference I completed this on a 970 gtx).
 
-    b. Run `npm run build` and then go open `index.html` in your web browser
+I have fixed the resolution to 600x600, get somewhere around 30-50 fps.
 
-## Module Bundling
-One of the most important dependencies of our projects is [Webpack](https://webpack.js.org/concepts/). Webpack is a module bundler which allows us to write code in separate files and use `import`s and `export`s to load classes and functions for other files. It also allows us to preprocess code before compiling to a single file. We will be using [Typescript](https://www.typescriptlang.org/docs/home.html) for this course which is Javascript augmented with type annotations. Webpack will convert Typescript files to Javascript files on compilation and in doing so will also check for proper type-safety and usage. Read more about Javascript modules in the resources section below.
+## Stuff in this homework
 
-## Developing Your Code
-All of the JavaScript code is living inside the `src` directory. The main file that gets executed when you load the page as you may have guessed is `main.ts`. Here, you can make any changes you want, import functions from other files, etc. The reason that we highly suggest you build your project with `npm start` is that doing so will start a process that watches for any changes you make to your code. If it detects anything, it'll automagically rebuild your project and then refresh your browser window for you. Wow. That's cool. If you do it the other way, you'll need to run `npm build` and then refresh your page every time you want to test something.
+### SDFs
 
-We would suggest editing your project with Visual Studio Code https://code.visualstudio.com/. Microsoft develops it and Microsoft also develops Typescript so all of the features work nicely together. Sublime Text and installing the Typescript plugins should probably work as well.
+Mostly a bunch of the basic shapes as available in IQ's website. Most of the SDF functions like Union, Sub, Intersect are used.
 
-## Assignment Details
+---
 
-1. The framework is a simplified version of the homework 0 base. It has been pruned to emphasize that the only geometry being rasterized is a single quad on the entire screen. Your job is to rewrite the shaders in src/shaders to create a raymarched scene drawn on top of the quad, and modify any other .ts files to provide the necessary info and interactivity to your raymarcher.
-2. Create and animate a scene! Using SDFs creatively, you must model and animate a "cool" scene. You can make whatever you want of course, but if you just can't think of something, then our suggestion is to make something mechanical like [this](https://www.shadertoy.com/view/XlfGzH). Additionally, we (Dan and Joe) like using [GraphToy](http://www.iquilezles.org/apps/graphtoy/) for easy editing and creation of custom functions for modeling and animating. Specific requirements:
-    * Blending: at least three of union, intersection, subtraction, smooth blend operations
-    * Domain repetition
-    * Parts that animate in interesting ways
-    * A background that isn't a constant color
-3. Finally: You must give your scene at least one kind of interesting material/reflection model, and we're not talking Lame-bert or Blinn-Phong...there are a ton of things you could do! If you just can't think of something, try specular reflection/transmission...or a [real-time subsurface scattering approximation](https://colinbarrebrisebois.com/2011/03/07/gdc-2011-approximating-translucency-for-a-fast-cheap-and-convincing-subsurface-scattering-look/).
-4. Optional features (for added credit):
-    * Ambient occlusion
-    * Soft shadows
-    * Extra optimizations (explain in your readme)
-    * Volumetric marching
-    * Marching height fields / non-SDF surfaces with reasonable speed
-    * Toggleable controllable camera
+### Animation
 
-## Resources
-- [Lecture slides](https://docs.google.com/presentation/d/1W5KWvkT1tscRG8x5tSfKXBRx9EGTZ-jVsOhIlfhJQLQ/edit?usp=sharing) (see the last two slides)
+##### Fake Wind
+
+I animated the bend of the Flag right next to the chest to make the scene look as if there is wind flowing through. So the Bend of the flag varies based on the Y of the flag, I offset the flag so that the top of the flag barely moves, ever so slightly.
+
+##### Chest Open / Close
+
+There is a control to open and close the chest. I wanted to put a banana in the chest, but ran out of time :3
+
+##### Clouds
+
+I added a 2D fbm'ed noise and used that to create cloud animation effect, it was a minor change, but it adds a good amount of life to the scene.
+
+
+---
+
+### The Terrain (Ray Marching Height Fields)
+
+The terrain is just random hash based noise, that is fbm'ed over some octaves. I do have some boundary conditions so I generate only the noise I need. This scene particularly has a noise that is generated only for a radius. I scaled the noise so that it looks mountainous and the origin is where the chest is. So I had some form of a "lerp" so force the mountain terrain to lower its height such that it creates a scene where I have a chest and lots of rocks in the background. More like a ditch was created.
+
+When I started raymarching the scene got so laggy with around 17fps for 400x400 pixels. For that I made some optimizations after talking to Dan and Joe. (listed in Optimizations)
+
+---
+
+### Environment Map based Reflections & Skybox
+
+I used an env map to produce reflections on Gold and Silver like materials. I used another random sky image to generate the skybox.
+
+---
+
+### Tone Mapping & Gamma Correction 
+
+I made some color correction so that my scene wasn't dull. You can see such a change in the Process GIF.
+
+---
+
+### Soft Shadows
+
+Another thing stolen from IQ, I used the article's reference code to generate some shadows for the flag, pole and chest.
+
+---
+
+### Music
+
+I used music from [Vindsvept](https://www.youtube.com/channel/UCfSUheoljDlGDjerRylO4Nw). I felt adding some fantasy music would be good!
+
+---
+
+### Terrain Texture Baking & Ray Marching Optimizations
+
+I optimized my terrain by baking my noise into a texture. I used that texture after that to render my height field. For Ray Marching, there is a bounding box in the middle containing the Scene's SDF. I ray trace that bounding box and then decide if it is suitable to ray marching it or not.
+
+![](./readme_resources/noise.png)
+
+This is what my noise looks like, as you can see I have a sphere boundary condition on it so I don't query height fields that I don't need for my scene. One good thing that i could have done (but didn't do) was to make the Camera restricted in the zone.
+
+---
+
+### Removing excess function calls & reducing calculations
+
+I tried to do this, But I felt baking the terrain was more important. Currently, the only issue you might encounter is loading the GLSL file to the gpu. Once loaded it runs really well.
+

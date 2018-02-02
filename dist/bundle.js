@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "dist/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 18);
+/******/ 	return __webpack_require__(__webpack_require__.s = 19);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -145,13 +145,26 @@ function equals(a, b) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return gl; });
+/* harmony export (immutable) */ __webpack_exports__["b"] = setGL;
+var gl;
+function setGL(_gl) {
+    gl = _gl;
+}
+
+
+/***/ }),
+/* 2 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__gl_matrix_common__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__gl_matrix_mat2__ = __webpack_require__(19);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__gl_matrix_mat2d__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__gl_matrix_mat2__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__gl_matrix_mat2d__ = __webpack_require__(21);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__gl_matrix_mat3__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__gl_matrix_mat4__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__gl_matrix_quat__ = __webpack_require__(22);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__gl_matrix_vec2__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__gl_matrix_mat4__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__gl_matrix_quat__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__gl_matrix_vec2__ = __webpack_require__(24);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__gl_matrix_vec3__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__gl_matrix_vec4__ = __webpack_require__(7);
 /* unused harmony reexport glMatrix */
@@ -160,9 +173,9 @@ function equals(a, b) {
 /* unused harmony reexport mat3 */
 /* harmony reexport (module object) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_4__gl_matrix_mat4__; });
 /* unused harmony reexport quat */
-/* unused harmony reexport vec2 */
-/* harmony reexport (module object) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_7__gl_matrix_vec3__; });
-/* harmony reexport (module object) */ __webpack_require__.d(__webpack_exports__, "c", function() { return __WEBPACK_IMPORTED_MODULE_8__gl_matrix_vec4__; });
+/* harmony reexport (module object) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_6__gl_matrix_vec2__; });
+/* harmony reexport (module object) */ __webpack_require__.d(__webpack_exports__, "c", function() { return __WEBPACK_IMPORTED_MODULE_7__gl_matrix_vec3__; });
+/* harmony reexport (module object) */ __webpack_require__.d(__webpack_exports__, "d", function() { return __WEBPACK_IMPORTED_MODULE_8__gl_matrix_vec4__; });
 /**
  * @fileoverview gl-matrix - High performance matrix and vector operations
  * @author Brandon Jones
@@ -201,19 +214,6 @@ THE SOFTWARE. */
 
 
 
-
-
-/***/ }),
-/* 2 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return gl; });
-/* harmony export (immutable) */ __webpack_exports__["b"] = setGL;
-var gl;
-function setGL(_gl) {
-    gl = _gl;
-}
 
 
 /***/ }),
@@ -2622,7 +2622,7 @@ const forEach = (function() {
 
 module.exports = createFilteredVector
 
-var cubicHermite = __webpack_require__(37)
+var cubicHermite = __webpack_require__(39)
 var bsearch = __webpack_require__(9)
 
 function clamp(lo, hi, x) {
@@ -3294,20 +3294,27 @@ function determinant(a) {
 
 /***/ }),
 /* 18 */
+/***/ (function(module, exports) {
+
+module.exports = "#version 300 es\n\nprecision highp float;\n\nin vec4 vs_Pos;\n\nvoid main() {\n\t// TODO: Pass relevant info to fragment\n\tgl_Position = vs_Pos;\n}\n"
+
+/***/ }),
+/* 19 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_gl_matrix__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_stats_js__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_gl_matrix__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_stats_js__ = __webpack_require__(25);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_stats_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_stats_js__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_dat_gui__ = __webpack_require__(25);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_dat_gui__ = __webpack_require__(26);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_dat_gui___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_dat_gui__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__geometry_Icosphere__ = __webpack_require__(28);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__rendering_gl_OpenGLRenderer__ = __webpack_require__(30);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__Camera__ = __webpack_require__(31);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__globals__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__rendering_gl_ShaderProgram__ = __webpack_require__(64);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__geometry_Square__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__rendering_gl_OpenGLRenderer__ = __webpack_require__(31);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__rendering_gl_Texture__ = __webpack_require__(32);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__Camera__ = __webpack_require__(33);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__globals__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__rendering_gl_ShaderProgram__ = __webpack_require__(66);
 
 
 
@@ -3316,16 +3323,80 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
-// Define an object with application parameters and button callbacks
-const controls = {
-    tesselations: 5,
-    'Load Scene': loadScene,
+
+let controls = {
+    loadSceneButton: loadScene,
+    testSceneButton: testScene,
+    toggleChestButton: toggleChest,
+    saveImage: saveImage,
+    waterControls: {
+        opacity: 0.65
+    }
 };
-let icosphere;
+let prevTime;
+let degreePerMS = -5.0 / 1000.0;
+let square;
+let chestOpen = false;
+let activeShader;
+let sceneShader;
+let testShader;
+let shaderMode = 0;
+let frameCount = 0;
+let chestTimer = 100;
+let shouldCapture = false;
+let envMapTextue;
+let noiseTerrainTextue;
+let skyTexture;
+/**
+ * @brief      Loads the pokeball scene.
+ */
 function loadScene() {
-    icosphere = new __WEBPACK_IMPORTED_MODULE_3__geometry_Icosphere__["a" /* default */](__WEBPACK_IMPORTED_MODULE_0_gl_matrix__["b" /* vec3 */].fromValues(0, 0, 0), 1, controls.tesselations);
-    icosphere.create();
+    activeShader = sceneShader;
+    frameCount = 0;
 }
+function testScene() {
+    activeShader = testShader;
+    frameCount = 0;
+}
+function toggleChest() {
+    chestOpen = !chestOpen;
+    chestTimer = 0;
+}
+/**
+ * @brief      Loads the geometry assets
+ */
+function loadAssets() {
+    square = new __WEBPACK_IMPORTED_MODULE_3__geometry_Square__["a" /* default */](__WEBPACK_IMPORTED_MODULE_0_gl_matrix__["c" /* vec3 */].fromValues(0, 0, 0));
+    square.create();
+}
+function saveImage() {
+    shouldCapture = true;
+}
+;
+function downloadImage() {
+    // Dump the canvas contents to a file.
+    var canvas = document.getElementById("canvas");
+    canvas.toBlob(function (blob) {
+        var link = document.createElement("a");
+        link.download = "image.png";
+        link.href = URL.createObjectURL(blob);
+        console.log(blob);
+        link.click();
+    }, 'image/png');
+}
+function constructGUI() {
+    // Add controls to the gui
+    const gui = new __WEBPACK_IMPORTED_MODULE_2_dat_gui__["GUI"]();
+    gui.add(controls, 'loadSceneButton').name('Load Scene');
+    gui.add(controls, 'testSceneButton').name('Test Scene');
+    gui.add(controls, 'toggleChestButton').name('Toggle Chest');
+    gui.add(controls, 'saveImage').name('Save Image');
+}
+/**
+ * @brief      Main execution code
+ *
+ * @memberof   Main
+ */
 function main() {
     // Initial display for framerate
     const stats = __WEBPACK_IMPORTED_MODULE_1_stats_js__();
@@ -3334,10 +3405,7 @@ function main() {
     stats.domElement.style.left = '0px';
     stats.domElement.style.top = '0px';
     document.body.appendChild(stats.domElement);
-    // Add controls to the gui
-    const gui = new __WEBPACK_IMPORTED_MODULE_2_dat_gui__["GUI"]();
-    gui.add(controls, 'tesselations', 0, 8).step(1);
-    gui.add(controls, 'Load Scene');
+    constructGUI();
     // get canvas and webgl context
     const canvas = document.getElementById('canvas');
     const gl = canvas.getContext('webgl2');
@@ -3346,46 +3414,83 @@ function main() {
     }
     // `setGL` is a function imported above which sets the value of `gl` in the `globals.ts` module.
     // Later, we can import `gl` from `globals.ts` to access it
-    Object(__WEBPACK_IMPORTED_MODULE_6__globals__["b" /* setGL */])(gl);
+    Object(__WEBPACK_IMPORTED_MODULE_7__globals__["b" /* setGL */])(gl);
     // Initial call to load scene
-    loadScene();
-    const camera = new __WEBPACK_IMPORTED_MODULE_5__Camera__["a" /* default */](__WEBPACK_IMPORTED_MODULE_0_gl_matrix__["b" /* vec3 */].fromValues(0, 0, 5), __WEBPACK_IMPORTED_MODULE_0_gl_matrix__["b" /* vec3 */].fromValues(0, 0, 0));
+    const camera = new __WEBPACK_IMPORTED_MODULE_6__Camera__["a" /* default */](__WEBPACK_IMPORTED_MODULE_0_gl_matrix__["c" /* vec3 */].fromValues(5.62, 4.64, 4.65), __WEBPACK_IMPORTED_MODULE_0_gl_matrix__["c" /* vec3 */].fromValues(0, 0, 0));
     const renderer = new __WEBPACK_IMPORTED_MODULE_4__rendering_gl_OpenGLRenderer__["a" /* default */](canvas);
-    renderer.setClearColor(0.2, 0.2, 0.2, 1);
+    renderer.setClearColor(0.05, 0.05, 0.05, 1);
     gl.enable(gl.DEPTH_TEST);
-    const lambert = new __WEBPACK_IMPORTED_MODULE_7__rendering_gl_ShaderProgram__["b" /* default */]([
-        new __WEBPACK_IMPORTED_MODULE_7__rendering_gl_ShaderProgram__["a" /* Shader */](gl.VERTEX_SHADER, __webpack_require__(65)),
-        new __WEBPACK_IMPORTED_MODULE_7__rendering_gl_ShaderProgram__["a" /* Shader */](gl.FRAGMENT_SHADER, __webpack_require__(66)),
+    envMapTextue = new __WEBPACK_IMPORTED_MODULE_5__rendering_gl_Texture__["a" /* default */]('./src/textures/env1.jpg');
+    skyTexture = new __WEBPACK_IMPORTED_MODULE_5__rendering_gl_Texture__["a" /* default */]('./src/textures/sky.jpg');
+    noiseTerrainTextue = new __WEBPACK_IMPORTED_MODULE_5__rendering_gl_Texture__["a" /* default */]('./src/textures/noise_terrain.png');
+    sceneShader = new __WEBPACK_IMPORTED_MODULE_8__rendering_gl_ShaderProgram__["b" /* default */]([
+        new __WEBPACK_IMPORTED_MODULE_8__rendering_gl_ShaderProgram__["a" /* Shader */](gl.VERTEX_SHADER, __webpack_require__(18)),
+        new __WEBPACK_IMPORTED_MODULE_8__rendering_gl_ShaderProgram__["a" /* Shader */](gl.FRAGMENT_SHADER, __webpack_require__(67)),
     ]);
+    testShader = new __WEBPACK_IMPORTED_MODULE_8__rendering_gl_ShaderProgram__["b" /* default */]([
+        new __WEBPACK_IMPORTED_MODULE_8__rendering_gl_ShaderProgram__["a" /* Shader */](gl.VERTEX_SHADER, __webpack_require__(18)),
+        new __WEBPACK_IMPORTED_MODULE_8__rendering_gl_ShaderProgram__["a" /* Shader */](gl.FRAGMENT_SHADER, __webpack_require__(68)),
+    ]);
+    gl.enable(gl.BLEND);
+    gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
+    loadAssets();
+    loadScene();
     // This function will be called every frame
     function tick() {
         camera.update();
+        let position = camera.getPosition();
         stats.begin();
         gl.viewport(0, 0, window.innerWidth, window.innerHeight);
         renderer.clear();
-        renderer.render(camera, lambert, [
-            icosphere,
-        ]);
+        envMapTextue.bind(0);
+        activeShader.setTexture(0);
+        noiseTerrainTextue.bind(1);
+        activeShader.setTexture(1);
+        skyTexture.bind(2);
+        activeShader.setTexture(2);
+        let status = 0;
+        if (chestOpen) {
+            status = 1;
+        }
+        activeShader.setChestOpen(status, chestTimer);
+        activeShader.setTime(frameCount);
+        activeShader.setEyePosition(__WEBPACK_IMPORTED_MODULE_0_gl_matrix__["d" /* vec4 */].fromValues(position[0], position[1], position[2], 1));
+        renderer.render(camera, activeShader, [square]);
+        frameCount++;
+        chestTimer++;
         stats.end();
+        if (shouldCapture) {
+            downloadImage();
+            shouldCapture = false;
+        }
+        prevTime = (new Date()).getTime();
         // Tell the browser to call `tick` again whenever it renders a new frame
         requestAnimationFrame(tick);
     }
-    window.addEventListener('resize', function () {
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        camera.setAspectRatio(window.innerWidth / window.innerHeight);
-        camera.updateProjectionMatrix();
-    }, false);
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    camera.setAspectRatio(window.innerWidth / window.innerHeight);
+    function logDetails() {
+        console.log('Camera Position: ', camera.getPosition());
+    }
+    window.logDetails = logDetails;
+    // window.addEventListener('resize', function() {
+    //   renderer.setSize(400, 400);
+    // camera.setAspectRatio(1.0);
+    //   camera.updateProjectionMatrix();
+    // }, false);
+    // renderer.setSize(window.innerWidth, window.innerHeight);
+    // camera.setAspectRatio(window.innerWidth / window.innerHeight);
+    // renderer.setSize(1080, 1080);
+    renderer.setSize(600, 600);
+    camera.setAspectRatio(1.0);
     camera.updateProjectionMatrix();
     // Start the render loop
+    prevTime = (new Date()).getTime();
     tick();
 }
 main();
 
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3854,7 +3959,7 @@ const sub = subtract;
 
 
 /***/ }),
-/* 20 */
+/* 21 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4355,7 +4460,7 @@ const sub = subtract;
 
 
 /***/ }),
-/* 21 */
+/* 22 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -6093,7 +6198,7 @@ const sub = subtract;
 
 
 /***/ }),
-/* 22 */
+/* 23 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -6783,44 +6888,45 @@ const setAxes = (function() {
 
 
 /***/ }),
-/* 23 */
+/* 24 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* unused harmony export create */
-/* unused harmony export clone */
-/* unused harmony export fromValues */
-/* unused harmony export copy */
-/* unused harmony export set */
-/* unused harmony export add */
-/* unused harmony export subtract */
-/* unused harmony export multiply */
-/* unused harmony export divide */
-/* unused harmony export ceil */
-/* unused harmony export floor */
-/* unused harmony export min */
-/* unused harmony export max */
-/* unused harmony export round */
-/* unused harmony export scale */
-/* unused harmony export scaleAndAdd */
-/* unused harmony export distance */
-/* unused harmony export squaredDistance */
-/* unused harmony export length */
-/* unused harmony export squaredLength */
-/* unused harmony export negate */
-/* unused harmony export inverse */
-/* unused harmony export normalize */
-/* unused harmony export dot */
-/* unused harmony export cross */
-/* unused harmony export lerp */
-/* unused harmony export random */
-/* unused harmony export transformMat2 */
-/* unused harmony export transformMat2d */
-/* unused harmony export transformMat3 */
-/* unused harmony export transformMat4 */
-/* unused harmony export str */
-/* unused harmony export exactEquals */
-/* unused harmony export equals */
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (immutable) */ __webpack_exports__["create"] = create;
+/* harmony export (immutable) */ __webpack_exports__["clone"] = clone;
+/* harmony export (immutable) */ __webpack_exports__["fromValues"] = fromValues;
+/* harmony export (immutable) */ __webpack_exports__["copy"] = copy;
+/* harmony export (immutable) */ __webpack_exports__["set"] = set;
+/* harmony export (immutable) */ __webpack_exports__["add"] = add;
+/* harmony export (immutable) */ __webpack_exports__["subtract"] = subtract;
+/* harmony export (immutable) */ __webpack_exports__["multiply"] = multiply;
+/* harmony export (immutable) */ __webpack_exports__["divide"] = divide;
+/* harmony export (immutable) */ __webpack_exports__["ceil"] = ceil;
+/* harmony export (immutable) */ __webpack_exports__["floor"] = floor;
+/* harmony export (immutable) */ __webpack_exports__["min"] = min;
+/* harmony export (immutable) */ __webpack_exports__["max"] = max;
+/* harmony export (immutable) */ __webpack_exports__["round"] = round;
+/* harmony export (immutable) */ __webpack_exports__["scale"] = scale;
+/* harmony export (immutable) */ __webpack_exports__["scaleAndAdd"] = scaleAndAdd;
+/* harmony export (immutable) */ __webpack_exports__["distance"] = distance;
+/* harmony export (immutable) */ __webpack_exports__["squaredDistance"] = squaredDistance;
+/* harmony export (immutable) */ __webpack_exports__["length"] = length;
+/* harmony export (immutable) */ __webpack_exports__["squaredLength"] = squaredLength;
+/* harmony export (immutable) */ __webpack_exports__["negate"] = negate;
+/* harmony export (immutable) */ __webpack_exports__["inverse"] = inverse;
+/* harmony export (immutable) */ __webpack_exports__["normalize"] = normalize;
+/* harmony export (immutable) */ __webpack_exports__["dot"] = dot;
+/* harmony export (immutable) */ __webpack_exports__["cross"] = cross;
+/* harmony export (immutable) */ __webpack_exports__["lerp"] = lerp;
+/* harmony export (immutable) */ __webpack_exports__["random"] = random;
+/* harmony export (immutable) */ __webpack_exports__["transformMat2"] = transformMat2;
+/* harmony export (immutable) */ __webpack_exports__["transformMat2d"] = transformMat2d;
+/* harmony export (immutable) */ __webpack_exports__["transformMat3"] = transformMat3;
+/* harmony export (immutable) */ __webpack_exports__["transformMat4"] = transformMat4;
+/* harmony export (immutable) */ __webpack_exports__["str"] = str;
+/* harmony export (immutable) */ __webpack_exports__["exactEquals"] = exactEquals;
+/* harmony export (immutable) */ __webpack_exports__["equals"] = equals;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__common__ = __webpack_require__(0);
 /* Copyright (c) 2015, Brandon Jones, Colin MacKenzie IV.
 
@@ -7329,7 +7435,7 @@ function equals(a, b) {
  * @function
  */
 const len = length;
-/* unused harmony export len */
+/* harmony export (immutable) */ __webpack_exports__["len"] = len;
 
 
 /**
@@ -7337,7 +7443,7 @@ const len = length;
  * @function
  */
 const sub = subtract;
-/* unused harmony export sub */
+/* harmony export (immutable) */ __webpack_exports__["sub"] = sub;
 
 
 /**
@@ -7345,7 +7451,7 @@ const sub = subtract;
  * @function
  */
 const mul = multiply;
-/* unused harmony export mul */
+/* harmony export (immutable) */ __webpack_exports__["mul"] = mul;
 
 
 /**
@@ -7353,7 +7459,7 @@ const mul = multiply;
  * @function
  */
 const div = divide;
-/* unused harmony export div */
+/* harmony export (immutable) */ __webpack_exports__["div"] = div;
 
 
 /**
@@ -7361,7 +7467,7 @@ const div = divide;
  * @function
  */
 const dist = distance;
-/* unused harmony export dist */
+/* harmony export (immutable) */ __webpack_exports__["dist"] = dist;
 
 
 /**
@@ -7369,7 +7475,7 @@ const dist = distance;
  * @function
  */
 const sqrDist = squaredDistance;
-/* unused harmony export sqrDist */
+/* harmony export (immutable) */ __webpack_exports__["sqrDist"] = sqrDist;
 
 
 /**
@@ -7377,7 +7483,7 @@ const sqrDist = squaredDistance;
  * @function
  */
 const sqrLen = squaredLength;
-/* unused harmony export sqrLen */
+/* harmony export (immutable) */ __webpack_exports__["sqrLen"] = sqrLen;
 
 
 /**
@@ -7420,12 +7526,12 @@ const forEach = (function() {
     return a;
   };
 })();
-/* unused harmony export forEach */
+/* harmony export (immutable) */ __webpack_exports__["forEach"] = forEach;
 
 
 
 /***/ }),
-/* 24 */
+/* 25 */
 /***/ (function(module, exports) {
 
 // stats.js - http://github.com/mrdoob/stats.js
@@ -7437,14 +7543,14 @@ a+"px",m=b,r=0);return b},update:function(){l=this.end()}}};"object"===typeof mo
 
 
 /***/ }),
-/* 25 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(26)
-module.exports.color = __webpack_require__(27)
+module.exports = __webpack_require__(27)
+module.exports.color = __webpack_require__(28)
 
 /***/ }),
-/* 26 */
+/* 27 */
 /***/ (function(module, exports) {
 
 /**
@@ -11109,7 +11215,7 @@ dat.dom.dom,
 dat.utils.common);
 
 /***/ }),
-/* 27 */
+/* 28 */
 /***/ (function(module, exports) {
 
 /**
@@ -11869,146 +11975,32 @@ dat.color.toString,
 dat.utils.common);
 
 /***/ }),
-/* 28 */
+/* 29 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_gl_matrix__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__rendering_gl_Drawable__ = __webpack_require__(29);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__globals__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_gl_matrix__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__rendering_gl_Drawable__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__globals__ = __webpack_require__(1);
 
 
 
-class Icosphere extends __WEBPACK_IMPORTED_MODULE_1__rendering_gl_Drawable__["a" /* default */] {
-    constructor(center, radius, subdivisions) {
+class Square extends __WEBPACK_IMPORTED_MODULE_1__rendering_gl_Drawable__["a" /* default */] {
+    constructor(center) {
         super(); // Call the constructor of the super class. This is required.
-        this.radius = radius;
-        this.subdivisions = subdivisions;
-        this.center = __WEBPACK_IMPORTED_MODULE_0_gl_matrix__["c" /* vec4 */].fromValues(center[0], center[1], center[2], 1);
+        this.center = __WEBPACK_IMPORTED_MODULE_0_gl_matrix__["d" /* vec4 */].fromValues(center[0], center[1], center[2], 1);
     }
     create() {
-        const X = 0.525731112119133606;
-        const Z = 0.850650808352039932;
-        const N = 0;
-        let maxIndexCount = 20 * Math.pow(4, this.subdivisions);
-        let maxVertexCount = 10 * Math.pow(4, this.subdivisions) + 2;
-        // Create buffers to back geometry data
-        // Index data will ping pong back and forth between buffer0 and buffer1 during creation
-        // All data will be in buffer0 at the end
-        const buffer0 = new ArrayBuffer(maxIndexCount * 3 * Uint32Array.BYTES_PER_ELEMENT +
-            maxVertexCount * 4 * Float32Array.BYTES_PER_ELEMENT +
-            maxVertexCount * 4 * Float32Array.BYTES_PER_ELEMENT);
-        const buffer1 = new ArrayBuffer(maxIndexCount * 3 * Uint32Array.BYTES_PER_ELEMENT);
-        const buffers = [buffer0, buffer1];
-        let b = 0;
-        const indexByteOffset = 0;
-        const vertexByteOffset = maxIndexCount * 3 * Uint32Array.BYTES_PER_ELEMENT;
-        const normalByteOffset = vertexByteOffset;
-        const positionByteOffset = vertexByteOffset + maxVertexCount * 4 * Float32Array.BYTES_PER_ELEMENT;
-        // Create 3-uint buffer views into the backing buffer to represent triangles
-        // The C++ analogy to this would be something like:
-        // triangles[i] = reinterpret_cast<std::array<unsigned int, 3>*>(&buffer[offset]);
-        let triangles = new Array(20);
-        let nextTriangles = new Array();
-        for (let i = 0; i < 20; ++i) {
-            triangles[i] = new Uint32Array(buffers[b], indexByteOffset + i * 3 * Uint32Array.BYTES_PER_ELEMENT, 3);
-        }
-        // Create 3-float buffer views into the backing buffer to represent positions
-        let vertices = new Array(12);
-        for (let i = 0; i < 12; ++i) {
-            vertices[i] = new Float32Array(buffer0, vertexByteOffset + i * 4 * Float32Array.BYTES_PER_ELEMENT, 4);
-        }
-        // Initialize normals for a 20-sided icosahedron
-        vertices[0].set([-X, N, Z, 0]);
-        vertices[1].set([X, N, Z, 0]);
-        vertices[2].set([-X, N, -Z, 0]);
-        vertices[3].set([X, N, -Z, 0]);
-        vertices[4].set([N, Z, X, 0]);
-        vertices[5].set([N, Z, -X, 0]);
-        vertices[6].set([N, -Z, X, 0]);
-        vertices[7].set([N, -Z, -X, 0]);
-        vertices[8].set([Z, X, N, 0]);
-        vertices[9].set([-Z, X, N, 0]);
-        vertices[10].set([Z, -X, N, 0]);
-        vertices[11].set([-Z, -X, N, 0]);
-        // Initialize indices for a 20-sided icosahedron
-        triangles[0].set([0, 4, 1]);
-        triangles[1].set([0, 9, 4]);
-        triangles[2].set([9, 5, 4]);
-        triangles[3].set([4, 5, 8]);
-        triangles[4].set([4, 8, 1]);
-        triangles[5].set([8, 10, 1]);
-        triangles[6].set([8, 3, 10]);
-        triangles[7].set([5, 3, 8]);
-        triangles[8].set([5, 2, 3]);
-        triangles[9].set([2, 7, 3]);
-        triangles[10].set([7, 10, 3]);
-        triangles[11].set([7, 6, 10]);
-        triangles[12].set([7, 11, 6]);
-        triangles[13].set([11, 0, 6]);
-        triangles[14].set([0, 1, 6]);
-        triangles[15].set([6, 1, 10]);
-        triangles[16].set([9, 0, 11]);
-        triangles[17].set([9, 11, 2]);
-        triangles[18].set([9, 2, 5]);
-        triangles[19].set([7, 2, 11]);
-        // This loop subdivides the icosahedron
-        for (let s = 0; s < this.subdivisions; ++s) {
-            b = 1 - b;
-            nextTriangles.length = triangles.length * 4;
-            let triangleIdx = 0;
-            // edgeMap maps a pair of vertex indices to a vertex index at their midpoint
-            // The function `mid` will get that midpoint vertex if it has already been created
-            // or it will create the vertex and add it to the map
-            let edgeMap = new Map();
-            function mid(v0, v1) {
-                let key = [v0, v1].sort().join('_');
-                if (!edgeMap.has(key)) {
-                    let midpoint = new Float32Array(buffer0, vertexByteOffset + vertices.length * 4 * Float32Array.BYTES_PER_ELEMENT, 4);
-                    __WEBPACK_IMPORTED_MODULE_0_gl_matrix__["c" /* vec4 */].add(midpoint, vertices[v0], vertices[v1]);
-                    __WEBPACK_IMPORTED_MODULE_0_gl_matrix__["c" /* vec4 */].normalize(midpoint, midpoint);
-                    edgeMap.set(key, vertices.length);
-                    vertices.push(midpoint);
-                }
-                return edgeMap.get(key);
-            }
-            for (let t = 0; t < triangles.length; ++t) {
-                let v0 = triangles[t][0];
-                let v1 = triangles[t][1];
-                let v2 = triangles[t][2];
-                let v3 = mid(v0, v1); // Get or create a vertex between these two vertices
-                let v4 = mid(v1, v2);
-                let v5 = mid(v2, v0);
-                let t0 = nextTriangles[triangleIdx] = new Uint32Array(buffers[b], indexByteOffset + (triangleIdx++) * 3 * Uint32Array.BYTES_PER_ELEMENT, 3);
-                let t1 = nextTriangles[triangleIdx] = new Uint32Array(buffers[b], indexByteOffset + (triangleIdx++) * 3 * Uint32Array.BYTES_PER_ELEMENT, 3);
-                let t2 = nextTriangles[triangleIdx] = new Uint32Array(buffers[b], indexByteOffset + (triangleIdx++) * 3 * Uint32Array.BYTES_PER_ELEMENT, 3);
-                let t3 = nextTriangles[triangleIdx] = new Uint32Array(buffers[b], indexByteOffset + (triangleIdx++) * 3 * Uint32Array.BYTES_PER_ELEMENT, 3);
-                let triangleOffset = nextTriangles.length;
-                t0.set([v0, v3, v5]);
-                t1.set([v3, v4, v5]);
-                t2.set([v3, v1, v4]);
-                t3.set([v5, v4, v2]);
-            }
-            // swap buffers
-            let temp = triangles;
-            triangles = nextTriangles;
-            nextTriangles = temp;
-        }
-        if (b === 1) {
-            // if indices did not end up in buffer0, copy them there now
-            let temp0 = new Uint32Array(buffer0, 0, 3 * triangles.length);
-            let temp1 = new Uint32Array(buffer1, 0, 3 * triangles.length);
-            temp0.set(temp1);
-        }
-        // Populate one position for each normal
-        for (let i = 0; i < vertices.length; ++i) {
-            let pos = new Float32Array(buffer0, positionByteOffset + i * 4 * Float32Array.BYTES_PER_ELEMENT, 4);
-            __WEBPACK_IMPORTED_MODULE_0_gl_matrix__["c" /* vec4 */].scaleAndAdd(pos, this.center, vertices[i], this.radius);
-        }
-        this.buffer = buffer0;
-        this.indices = new Uint32Array(this.buffer, indexByteOffset, triangles.length * 3);
-        this.normals = new Float32Array(this.buffer, normalByteOffset, vertices.length * 4);
-        this.positions = new Float32Array(this.buffer, positionByteOffset, vertices.length * 4);
+        this.indices = new Uint32Array([0, 1, 2,
+            0, 2, 3]);
+        this.normals = new Float32Array([0, 0, 1, 0,
+            0, 0, 1, 0,
+            0, 0, 1, 0,
+            0, 0, 1, 0]);
+        this.positions = new Float32Array([-1, -1, 0, 1,
+            1, -1, 0, 1,
+            1, 1, 0, 1,
+            -1, 1, 0, 1]);
         this.generateIdx();
         this.generatePos();
         this.generateNor();
@@ -12019,19 +12011,19 @@ class Icosphere extends __WEBPACK_IMPORTED_MODULE_1__rendering_gl_Drawable__["a"
         __WEBPACK_IMPORTED_MODULE_2__globals__["a" /* gl */].bufferData(__WEBPACK_IMPORTED_MODULE_2__globals__["a" /* gl */].ARRAY_BUFFER, this.normals, __WEBPACK_IMPORTED_MODULE_2__globals__["a" /* gl */].STATIC_DRAW);
         __WEBPACK_IMPORTED_MODULE_2__globals__["a" /* gl */].bindBuffer(__WEBPACK_IMPORTED_MODULE_2__globals__["a" /* gl */].ARRAY_BUFFER, this.bufPos);
         __WEBPACK_IMPORTED_MODULE_2__globals__["a" /* gl */].bufferData(__WEBPACK_IMPORTED_MODULE_2__globals__["a" /* gl */].ARRAY_BUFFER, this.positions, __WEBPACK_IMPORTED_MODULE_2__globals__["a" /* gl */].STATIC_DRAW);
-        console.log(`Created icosphere with ${vertices.length} vertices`);
+        console.log(`Created square`);
     }
 }
 ;
-/* harmony default export */ __webpack_exports__["a"] = (Icosphere);
+/* harmony default export */ __webpack_exports__["a"] = (Square);
 
 
 /***/ }),
-/* 29 */
+/* 30 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__globals__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__globals__ = __webpack_require__(1);
 
 class Drawable {
     constructor() {
@@ -12040,7 +12032,7 @@ class Drawable {
         this.posBound = false;
         this.norBound = false;
     }
-    destory() {
+    destroy() {
         __WEBPACK_IMPORTED_MODULE_0__globals__["a" /* gl */].deleteBuffer(this.bufIdx);
         __WEBPACK_IMPORTED_MODULE_0__globals__["a" /* gl */].deleteBuffer(this.bufPos);
         __WEBPACK_IMPORTED_MODULE_0__globals__["a" /* gl */].deleteBuffer(this.bufNor);
@@ -12087,18 +12079,19 @@ class Drawable {
 
 
 /***/ }),
-/* 30 */
+/* 31 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_gl_matrix__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__globals__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_gl_matrix__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__globals__ = __webpack_require__(1);
 
 
 // In this file, `gl` is accessible because it is imported above
 class OpenGLRenderer {
     constructor(canvas) {
         this.canvas = canvas;
+        this.geometryColor = __WEBPACK_IMPORTED_MODULE_0_gl_matrix__["d" /* vec4 */].fromValues(1, 0, 0, 1);
     }
     setClearColor(r, g, b, a) {
         __WEBPACK_IMPORTED_MODULE_1__globals__["a" /* gl */].clearColor(r, g, b, a);
@@ -12107,18 +12100,28 @@ class OpenGLRenderer {
         this.canvas.width = width;
         this.canvas.height = height;
     }
+    setGeometryColor(color) {
+        this.geometryColor = color;
+    }
     clear() {
         __WEBPACK_IMPORTED_MODULE_1__globals__["a" /* gl */].clear(__WEBPACK_IMPORTED_MODULE_1__globals__["a" /* gl */].COLOR_BUFFER_BIT | __WEBPACK_IMPORTED_MODULE_1__globals__["a" /* gl */].DEPTH_BUFFER_BIT);
     }
     render(camera, prog, drawables) {
         let model = __WEBPACK_IMPORTED_MODULE_0_gl_matrix__["a" /* mat4 */].create();
+        let rotDelta = __WEBPACK_IMPORTED_MODULE_0_gl_matrix__["a" /* mat4 */].create();
         let viewProj = __WEBPACK_IMPORTED_MODULE_0_gl_matrix__["a" /* mat4 */].create();
-        let color = __WEBPACK_IMPORTED_MODULE_0_gl_matrix__["c" /* vec4 */].fromValues(1, 0, 0, 1);
+        let invViewProj = __WEBPACK_IMPORTED_MODULE_0_gl_matrix__["a" /* mat4 */].create();
+        let invProj = __WEBPACK_IMPORTED_MODULE_0_gl_matrix__["a" /* mat4 */].create();
+        let invView = __WEBPACK_IMPORTED_MODULE_0_gl_matrix__["a" /* mat4 */].create();
+        let color = this.geometryColor;
         __WEBPACK_IMPORTED_MODULE_0_gl_matrix__["a" /* mat4 */].identity(model);
         __WEBPACK_IMPORTED_MODULE_0_gl_matrix__["a" /* mat4 */].multiply(viewProj, camera.projectionMatrix, camera.viewMatrix);
-        prog.setModelMatrix(model);
+        __WEBPACK_IMPORTED_MODULE_0_gl_matrix__["a" /* mat4 */].invert(invProj, camera.projectionMatrix);
+        __WEBPACK_IMPORTED_MODULE_0_gl_matrix__["a" /* mat4 */].invert(invView, camera.viewMatrix);
+        __WEBPACK_IMPORTED_MODULE_0_gl_matrix__["a" /* mat4 */].multiply(invViewProj, invView, invProj);
         prog.setViewProjMatrix(viewProj);
-        prog.setGeometryColor(color);
+        prog.setInvViewProjMatrix(invViewProj);
+        prog.setScreenDimensions(__WEBPACK_IMPORTED_MODULE_0_gl_matrix__["b" /* vec2 */].fromValues(this.canvas.width, this.canvas.height));
         for (let drawable of drawables) {
             prog.draw(drawable);
         }
@@ -12129,13 +12132,101 @@ class OpenGLRenderer {
 
 
 /***/ }),
-/* 31 */
+/* 32 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_3d_view_controls__ = __webpack_require__(32);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__globals__ = __webpack_require__(1);
+
+class Texture {
+    /*----------  Code Taken from MDN  ----------*/
+    // https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/Tutorial/Using_textures_in_WebGL
+    // Based on the code, the Image Load is async. I haven't added a Callback or Promise.
+    // Could lead to errors, but since the first scene is the cube scene. While the cube scene loads, the image gets downloaded (locally from the local server)
+    constructor(url) {
+        this.texture = __WEBPACK_IMPORTED_MODULE_0__globals__["a" /* gl */].createTexture();
+        __WEBPACK_IMPORTED_MODULE_0__globals__["a" /* gl */].bindTexture(__WEBPACK_IMPORTED_MODULE_0__globals__["a" /* gl */].TEXTURE_2D, this.texture);
+        var textureRef = this.texture;
+        // Because images have to be download over the internet
+        // they might take a moment until they are ready.
+        // Until then put a single pixel in the texture so we can
+        // use it immediately. When the image has finished downloading
+        // we'll update the texture with the contents of the image.
+        const level = 0;
+        const internalFormat = __WEBPACK_IMPORTED_MODULE_0__globals__["a" /* gl */].RGBA;
+        const width = 1;
+        const height = 1;
+        const border = 0;
+        const srcFormat = __WEBPACK_IMPORTED_MODULE_0__globals__["a" /* gl */].RGBA;
+        const srcType = __WEBPACK_IMPORTED_MODULE_0__globals__["a" /* gl */].UNSIGNED_BYTE;
+        const pixel = new Uint8Array([0, 0, 255, 255]); // opaque blue
+        __WEBPACK_IMPORTED_MODULE_0__globals__["a" /* gl */].texImage2D(__WEBPACK_IMPORTED_MODULE_0__globals__["a" /* gl */].TEXTURE_2D, level, internalFormat, width, height, border, srcFormat, srcType, pixel);
+        const image = new Image();
+        image.onload = function () {
+            __WEBPACK_IMPORTED_MODULE_0__globals__["a" /* gl */].bindTexture(__WEBPACK_IMPORTED_MODULE_0__globals__["a" /* gl */].TEXTURE_2D, textureRef);
+            __WEBPACK_IMPORTED_MODULE_0__globals__["a" /* gl */].texImage2D(__WEBPACK_IMPORTED_MODULE_0__globals__["a" /* gl */].TEXTURE_2D, level, internalFormat, srcFormat, srcType, image);
+            // WebGL1 has different requirements for power of 2 images
+            // vs non power of 2 images so check if the image is a
+            // power of 2 in both dimensions.
+            if (isPowerOf2(image.width) && isPowerOf2(image.height)) {
+                // Yes, it's a power of 2. Generate mips.
+                __WEBPACK_IMPORTED_MODULE_0__globals__["a" /* gl */].generateMipmap(__WEBPACK_IMPORTED_MODULE_0__globals__["a" /* gl */].TEXTURE_2D);
+            }
+            else {
+                // No, it's not a power of 2. Turn of mips and set
+                // wrapping to clamp to edge
+                __WEBPACK_IMPORTED_MODULE_0__globals__["a" /* gl */].texParameteri(__WEBPACK_IMPORTED_MODULE_0__globals__["a" /* gl */].TEXTURE_2D, __WEBPACK_IMPORTED_MODULE_0__globals__["a" /* gl */].TEXTURE_WRAP_S, __WEBPACK_IMPORTED_MODULE_0__globals__["a" /* gl */].CLAMP_TO_EDGE);
+                __WEBPACK_IMPORTED_MODULE_0__globals__["a" /* gl */].texParameteri(__WEBPACK_IMPORTED_MODULE_0__globals__["a" /* gl */].TEXTURE_2D, __WEBPACK_IMPORTED_MODULE_0__globals__["a" /* gl */].TEXTURE_WRAP_T, __WEBPACK_IMPORTED_MODULE_0__globals__["a" /* gl */].CLAMP_TO_EDGE);
+                __WEBPACK_IMPORTED_MODULE_0__globals__["a" /* gl */].texParameteri(__WEBPACK_IMPORTED_MODULE_0__globals__["a" /* gl */].TEXTURE_2D, __WEBPACK_IMPORTED_MODULE_0__globals__["a" /* gl */].TEXTURE_MIN_FILTER, __WEBPACK_IMPORTED_MODULE_0__globals__["a" /* gl */].LINEAR);
+            }
+        };
+        image.src = url;
+    }
+    /**
+     * @brief      Bind Texture
+     *
+     * @memberof   Texture
+     *
+     */
+    bind(slot) {
+        let slotType;
+        switch (slot) {
+            case 1:
+                slotType = __WEBPACK_IMPORTED_MODULE_0__globals__["a" /* gl */].TEXTURE1;
+                break;
+            case 2:
+                slotType = __WEBPACK_IMPORTED_MODULE_0__globals__["a" /* gl */].TEXTURE2;
+                break;
+            case 3:
+                slotType = __WEBPACK_IMPORTED_MODULE_0__globals__["a" /* gl */].TEXTURE3;
+                break;
+            case 4:
+                slotType = __WEBPACK_IMPORTED_MODULE_0__globals__["a" /* gl */].TEXTURE4;
+                break;
+            default:
+                slotType = __WEBPACK_IMPORTED_MODULE_0__globals__["a" /* gl */].TEXTURE0;
+                break;
+        }
+        __WEBPACK_IMPORTED_MODULE_0__globals__["a" /* gl */].activeTexture(slotType);
+        __WEBPACK_IMPORTED_MODULE_0__globals__["a" /* gl */].bindTexture(__WEBPACK_IMPORTED_MODULE_0__globals__["a" /* gl */].TEXTURE_2D, this.texture);
+    }
+}
+/* unused harmony export Texture */
+
+function isPowerOf2(value) {
+    return (value & (value - 1)) == 0;
+}
+/* harmony default export */ __webpack_exports__["a"] = (Texture);
+
+
+/***/ }),
+/* 33 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_3d_view_controls__ = __webpack_require__(34);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_3d_view_controls___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_3d_view_controls__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_gl_matrix__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_gl_matrix__ = __webpack_require__(2);
 
 
 class Camera {
@@ -12146,15 +12237,15 @@ class Camera {
         this.aspectRatio = 1;
         this.near = 0.1;
         this.far = 1000;
-        this.position = __WEBPACK_IMPORTED_MODULE_1_gl_matrix__["b" /* vec3 */].create();
-        this.direction = __WEBPACK_IMPORTED_MODULE_1_gl_matrix__["b" /* vec3 */].create();
-        this.target = __WEBPACK_IMPORTED_MODULE_1_gl_matrix__["b" /* vec3 */].create();
-        this.up = __WEBPACK_IMPORTED_MODULE_1_gl_matrix__["b" /* vec3 */].create();
+        this.position = __WEBPACK_IMPORTED_MODULE_1_gl_matrix__["c" /* vec3 */].create();
+        this.direction = __WEBPACK_IMPORTED_MODULE_1_gl_matrix__["c" /* vec3 */].create();
+        this.target = __WEBPACK_IMPORTED_MODULE_1_gl_matrix__["c" /* vec3 */].create();
+        this.up = __WEBPACK_IMPORTED_MODULE_1_gl_matrix__["c" /* vec3 */].create();
         this.controls = __WEBPACK_IMPORTED_MODULE_0_3d_view_controls__(document.getElementById('canvas'), {
             eye: position,
             center: target,
         });
-        __WEBPACK_IMPORTED_MODULE_1_gl_matrix__["b" /* vec3 */].add(this.target, this.position, this.direction);
+        __WEBPACK_IMPORTED_MODULE_1_gl_matrix__["c" /* vec3 */].add(this.target, this.position, this.direction);
         __WEBPACK_IMPORTED_MODULE_1_gl_matrix__["a" /* mat4 */].lookAt(this.viewMatrix, this.controls.eye, this.controls.center, this.controls.up);
     }
     setAspectRatio(aspectRatio) {
@@ -12163,9 +12254,12 @@ class Camera {
     updateProjectionMatrix() {
         __WEBPACK_IMPORTED_MODULE_1_gl_matrix__["a" /* mat4 */].perspective(this.projectionMatrix, this.fovy, this.aspectRatio, this.near, this.far);
     }
+    getPosition() {
+        return this.controls.eye;
+    }
     update() {
         this.controls.tick();
-        __WEBPACK_IMPORTED_MODULE_1_gl_matrix__["b" /* vec3 */].add(this.target, this.position, this.direction);
+        __WEBPACK_IMPORTED_MODULE_1_gl_matrix__["c" /* vec3 */].add(this.target, this.position, this.direction);
         __WEBPACK_IMPORTED_MODULE_1_gl_matrix__["a" /* mat4 */].lookAt(this.viewMatrix, this.controls.eye, this.controls.center, this.controls.up);
     }
 }
@@ -12174,7 +12268,7 @@ class Camera {
 
 
 /***/ }),
-/* 32 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12182,11 +12276,11 @@ class Camera {
 
 module.exports = createCamera
 
-var now         = __webpack_require__(33)
-var createView  = __webpack_require__(35)
-var mouseChange = __webpack_require__(58)
-var mouseWheel  = __webpack_require__(60)
-var mouseOffset = __webpack_require__(63)
+var now         = __webpack_require__(35)
+var createView  = __webpack_require__(37)
+var mouseChange = __webpack_require__(60)
+var mouseWheel  = __webpack_require__(62)
+var mouseOffset = __webpack_require__(65)
 
 function createCamera(element, options) {
   element = element || document.body
@@ -12408,7 +12502,7 @@ function createCamera(element, options) {
 
 
 /***/ }),
-/* 33 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {module.exports =
@@ -12419,10 +12513,10 @@ function createCamera(element, options) {
     return +new Date
   }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(34)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(36)))
 
 /***/ }),
-/* 34 */
+/* 36 */
 /***/ (function(module, exports) {
 
 var g;
@@ -12449,7 +12543,7 @@ module.exports = g;
 
 
 /***/ }),
-/* 35 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12457,9 +12551,9 @@ module.exports = g;
 
 module.exports = createViewController
 
-var createTurntable = __webpack_require__(36)
-var createOrbit     = __webpack_require__(39)
-var createMatrix    = __webpack_require__(42)
+var createTurntable = __webpack_require__(38)
+var createOrbit     = __webpack_require__(41)
+var createMatrix    = __webpack_require__(44)
 
 function ViewController(controllers, mode) {
   this._controllerNames = Object.keys(controllers)
@@ -12577,7 +12671,7 @@ function createViewController(options) {
 }
 
 /***/ }),
-/* 36 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12587,7 +12681,7 @@ module.exports = createTurntableController
 
 var filterVector = __webpack_require__(8)
 var invert44     = __webpack_require__(3)
-var rotateM      = __webpack_require__(38)
+var rotateM      = __webpack_require__(40)
 var cross        = __webpack_require__(10)
 var normalize3   = __webpack_require__(4)
 var dot3         = __webpack_require__(11)
@@ -13155,7 +13249,7 @@ function createTurntableController(options) {
 }
 
 /***/ }),
-/* 37 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13200,7 +13294,7 @@ module.exports = cubicHermite
 module.exports.derivative = dcubicHermite
 
 /***/ }),
-/* 38 */
+/* 40 */
 /***/ (function(module, exports) {
 
 module.exports = rotate;
@@ -13269,7 +13363,7 @@ function rotate(out, a, rad, axis) {
 };
 
 /***/ }),
-/* 39 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13279,9 +13373,9 @@ module.exports = createOrbitController
 
 var filterVector  = __webpack_require__(8)
 var lookAt        = __webpack_require__(12)
-var mat4FromQuat  = __webpack_require__(40)
+var mat4FromQuat  = __webpack_require__(42)
 var invert44      = __webpack_require__(3)
-var quatFromFrame = __webpack_require__(41)
+var quatFromFrame = __webpack_require__(43)
 
 function len3(x,y,z) {
   return Math.sqrt(Math.pow(x,2) + Math.pow(y,2) + Math.pow(z,2))
@@ -13668,7 +13762,7 @@ function createOrbitController(options) {
 }
 
 /***/ }),
-/* 40 */
+/* 42 */
 /***/ (function(module, exports) {
 
 module.exports = fromQuat;
@@ -13720,7 +13814,7 @@ function fromQuat(out, q) {
 };
 
 /***/ }),
-/* 41 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13767,18 +13861,18 @@ function quatFromFrame(
 }
 
 /***/ }),
-/* 42 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var bsearch   = __webpack_require__(9)
-var m4interp  = __webpack_require__(43)
+var m4interp  = __webpack_require__(45)
 var invert44  = __webpack_require__(3)
-var rotateX   = __webpack_require__(55)
-var rotateY   = __webpack_require__(56)
-var rotateZ   = __webpack_require__(57)
+var rotateX   = __webpack_require__(57)
+var rotateY   = __webpack_require__(58)
+var rotateZ   = __webpack_require__(59)
 var lookAt    = __webpack_require__(12)
 var translate = __webpack_require__(14)
 var scale     = __webpack_require__(16)
@@ -13972,15 +14066,15 @@ function createMatrixCameraController(options) {
 
 
 /***/ }),
-/* 43 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var lerp = __webpack_require__(44)
+var lerp = __webpack_require__(46)
 
-var recompose = __webpack_require__(45)
-var decompose = __webpack_require__(48)
+var recompose = __webpack_require__(47)
+var decompose = __webpack_require__(50)
 var determinant = __webpack_require__(17)
-var slerp = __webpack_require__(53)
+var slerp = __webpack_require__(55)
 
 var state0 = state()
 var state1 = state()
@@ -14029,7 +14123,7 @@ function vec4() {
 }
 
 /***/ }),
-/* 44 */
+/* 46 */
 /***/ (function(module, exports) {
 
 module.exports = lerp;
@@ -14054,7 +14148,7 @@ function lerp(out, a, b, t) {
 }
 
 /***/ }),
-/* 45 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -14071,10 +14165,10 @@ From: http://www.w3.org/TR/css3-transforms/#recomposing-to-a-3d-matrix
 var mat4 = {
     identity: __webpack_require__(13),
     translate: __webpack_require__(14),
-    multiply: __webpack_require__(46),
+    multiply: __webpack_require__(48),
     create: __webpack_require__(15),
     scale: __webpack_require__(16),
-    fromRotationTranslation: __webpack_require__(47)
+    fromRotationTranslation: __webpack_require__(49)
 }
 
 var rotationMatrix = mat4.create()
@@ -14119,7 +14213,7 @@ module.exports = function recomposeMat4(matrix, translation, scale, skew, perspe
 }
 
 /***/ }),
-/* 46 */
+/* 48 */
 /***/ (function(module, exports) {
 
 module.exports = multiply;
@@ -14166,7 +14260,7 @@ function multiply(out, a, b) {
 };
 
 /***/ }),
-/* 47 */
+/* 49 */
 /***/ (function(module, exports) {
 
 module.exports = fromRotationTranslation;
@@ -14224,7 +14318,7 @@ function fromRotationTranslation(out, q, v) {
 };
 
 /***/ }),
-/* 48 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*jshint unused:true*/
@@ -14244,15 +14338,15 @@ https://github.com/ChromiumWebApps/chromium/blob/master/ui/gfx/transform_util.cc
 http://www.w3.org/TR/css3-transforms/#decomposing-a-3d-matrix
 */
 
-var normalize = __webpack_require__(49)
+var normalize = __webpack_require__(51)
 
 var create = __webpack_require__(15)
-var clone = __webpack_require__(50)
+var clone = __webpack_require__(52)
 var determinant = __webpack_require__(17)
 var invert = __webpack_require__(3)
-var transpose = __webpack_require__(51)
+var transpose = __webpack_require__(53)
 var vec3 = {
-    length: __webpack_require__(52),
+    length: __webpack_require__(54),
     normalize: __webpack_require__(4),
     dot: __webpack_require__(11),
     cross: __webpack_require__(10)
@@ -14408,7 +14502,7 @@ function combine(out, a, b, scale1, scale2) {
 }
 
 /***/ }),
-/* 49 */
+/* 51 */
 /***/ (function(module, exports) {
 
 module.exports = function normalize(out, mat) {
@@ -14423,7 +14517,7 @@ module.exports = function normalize(out, mat) {
 }
 
 /***/ }),
-/* 50 */
+/* 52 */
 /***/ (function(module, exports) {
 
 module.exports = clone;
@@ -14456,7 +14550,7 @@ function clone(a) {
 };
 
 /***/ }),
-/* 51 */
+/* 53 */
 /***/ (function(module, exports) {
 
 module.exports = transpose;
@@ -14510,7 +14604,7 @@ function transpose(out, a) {
 };
 
 /***/ }),
-/* 52 */
+/* 54 */
 /***/ (function(module, exports) {
 
 module.exports = length;
@@ -14529,13 +14623,13 @@ function length(a) {
 }
 
 /***/ }),
-/* 53 */
+/* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(54)
+module.exports = __webpack_require__(56)
 
 /***/ }),
-/* 54 */
+/* 56 */
 /***/ (function(module, exports) {
 
 module.exports = slerp
@@ -14592,7 +14686,7 @@ function slerp (out, a, b, t) {
 
 
 /***/ }),
-/* 55 */
+/* 57 */
 /***/ (function(module, exports) {
 
 module.exports = rotateX;
@@ -14641,7 +14735,7 @@ function rotateX(out, a, rad) {
 };
 
 /***/ }),
-/* 56 */
+/* 58 */
 /***/ (function(module, exports) {
 
 module.exports = rotateY;
@@ -14690,7 +14784,7 @@ function rotateY(out, a, rad) {
 };
 
 /***/ }),
-/* 57 */
+/* 59 */
 /***/ (function(module, exports) {
 
 module.exports = rotateZ;
@@ -14739,7 +14833,7 @@ function rotateZ(out, a, rad) {
 };
 
 /***/ }),
-/* 58 */
+/* 60 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14747,7 +14841,7 @@ function rotateZ(out, a, rad) {
 
 module.exports = mouseListen
 
-var mouse = __webpack_require__(59)
+var mouse = __webpack_require__(61)
 
 function mouseListen (element, callback) {
   if (!callback) {
@@ -14951,7 +15045,7 @@ function mouseListen (element, callback) {
 
 
 /***/ }),
-/* 59 */
+/* 61 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15018,13 +15112,13 @@ exports.y = mouseRelativeY
 
 
 /***/ }),
-/* 60 */
+/* 62 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var toPX = __webpack_require__(61)
+var toPX = __webpack_require__(63)
 
 module.exports = mouseWheelListen
 
@@ -15065,13 +15159,13 @@ function mouseWheelListen(element, callback, noScroll) {
 
 
 /***/ }),
-/* 61 */
+/* 63 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var parseUnit = __webpack_require__(62)
+var parseUnit = __webpack_require__(64)
 
 module.exports = toPX
 
@@ -15131,7 +15225,7 @@ function toPX(str, element) {
 }
 
 /***/ }),
-/* 62 */
+/* 64 */
 /***/ (function(module, exports) {
 
 module.exports = function parseUnit(str, out) {
@@ -15146,7 +15240,7 @@ module.exports = function parseUnit(str, out) {
 }
 
 /***/ }),
-/* 63 */
+/* 65 */
 /***/ (function(module, exports) {
 
 var rootPosition = { left: 0, top: 0 }
@@ -15177,22 +15271,20 @@ function getBoundingClientOffset (element) {
 
 
 /***/ }),
-/* 64 */
+/* 66 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_gl_matrix__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__globals__ = __webpack_require__(2);
-
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__globals__ = __webpack_require__(1);
 
 var activeProgram = null;
 class Shader {
     constructor(type, source) {
-        this.shader = __WEBPACK_IMPORTED_MODULE_1__globals__["a" /* gl */].createShader(type);
-        __WEBPACK_IMPORTED_MODULE_1__globals__["a" /* gl */].shaderSource(this.shader, source);
-        __WEBPACK_IMPORTED_MODULE_1__globals__["a" /* gl */].compileShader(this.shader);
-        if (!__WEBPACK_IMPORTED_MODULE_1__globals__["a" /* gl */].getShaderParameter(this.shader, __WEBPACK_IMPORTED_MODULE_1__globals__["a" /* gl */].COMPILE_STATUS)) {
-            throw __WEBPACK_IMPORTED_MODULE_1__globals__["a" /* gl */].getShaderInfoLog(this.shader);
+        this.shader = __WEBPACK_IMPORTED_MODULE_0__globals__["a" /* gl */].createShader(type);
+        __WEBPACK_IMPORTED_MODULE_0__globals__["a" /* gl */].shaderSource(this.shader, source);
+        __WEBPACK_IMPORTED_MODULE_0__globals__["a" /* gl */].compileShader(this.shader);
+        if (!__WEBPACK_IMPORTED_MODULE_0__globals__["a" /* gl */].getShaderParameter(this.shader, __WEBPACK_IMPORTED_MODULE_0__globals__["a" /* gl */].COMPILE_STATUS)) {
+            throw __WEBPACK_IMPORTED_MODULE_0__globals__["a" /* gl */].getShaderInfoLog(this.shader);
         }
     }
 }
@@ -15201,68 +15293,145 @@ class Shader {
 ;
 class ShaderProgram {
     constructor(shaders) {
-        this.prog = __WEBPACK_IMPORTED_MODULE_1__globals__["a" /* gl */].createProgram();
+        this.prog = __WEBPACK_IMPORTED_MODULE_0__globals__["a" /* gl */].createProgram();
         for (let shader of shaders) {
-            __WEBPACK_IMPORTED_MODULE_1__globals__["a" /* gl */].attachShader(this.prog, shader.shader);
+            __WEBPACK_IMPORTED_MODULE_0__globals__["a" /* gl */].attachShader(this.prog, shader.shader);
         }
-        __WEBPACK_IMPORTED_MODULE_1__globals__["a" /* gl */].linkProgram(this.prog);
-        if (!__WEBPACK_IMPORTED_MODULE_1__globals__["a" /* gl */].getProgramParameter(this.prog, __WEBPACK_IMPORTED_MODULE_1__globals__["a" /* gl */].LINK_STATUS)) {
-            throw __WEBPACK_IMPORTED_MODULE_1__globals__["a" /* gl */].getProgramInfoLog(this.prog);
+        __WEBPACK_IMPORTED_MODULE_0__globals__["a" /* gl */].linkProgram(this.prog);
+        if (!__WEBPACK_IMPORTED_MODULE_0__globals__["a" /* gl */].getProgramParameter(this.prog, __WEBPACK_IMPORTED_MODULE_0__globals__["a" /* gl */].LINK_STATUS)) {
+            throw __WEBPACK_IMPORTED_MODULE_0__globals__["a" /* gl */].getProgramInfoLog(this.prog);
         }
-        this.attrPos = __WEBPACK_IMPORTED_MODULE_1__globals__["a" /* gl */].getAttribLocation(this.prog, "vs_Pos");
-        this.attrNor = __WEBPACK_IMPORTED_MODULE_1__globals__["a" /* gl */].getAttribLocation(this.prog, "vs_Nor");
-        this.attrCol = __WEBPACK_IMPORTED_MODULE_1__globals__["a" /* gl */].getAttribLocation(this.prog, "vs_Col");
-        this.unifModel = __WEBPACK_IMPORTED_MODULE_1__globals__["a" /* gl */].getUniformLocation(this.prog, "u_Model");
-        this.unifModelInvTr = __WEBPACK_IMPORTED_MODULE_1__globals__["a" /* gl */].getUniformLocation(this.prog, "u_ModelInvTr");
-        this.unifViewProj = __WEBPACK_IMPORTED_MODULE_1__globals__["a" /* gl */].getUniformLocation(this.prog, "u_ViewProj");
-        this.unifColor = __WEBPACK_IMPORTED_MODULE_1__globals__["a" /* gl */].getUniformLocation(this.prog, "u_Color");
+        // Raymarcher only draws a quad in screen space! No other attributes
+        this.attrPos = __WEBPACK_IMPORTED_MODULE_0__globals__["a" /* gl */].getAttribLocation(this.prog, "vs_Pos");
+        this.unifViewProj = __WEBPACK_IMPORTED_MODULE_0__globals__["a" /* gl */].getUniformLocation(this.prog, "u_ViewProj");
+        this.unifInvViewProj = __WEBPACK_IMPORTED_MODULE_0__globals__["a" /* gl */].getUniformLocation(this.prog, "u_InvViewProj");
+        this.unifEye = __WEBPACK_IMPORTED_MODULE_0__globals__["a" /* gl */].getUniformLocation(this.prog, "u_Eye");
+        this.unifTime = __WEBPACK_IMPORTED_MODULE_0__globals__["a" /* gl */].getUniformLocation(this.prog, "u_Time");
+        this.unifDimensions = __WEBPACK_IMPORTED_MODULE_0__globals__["a" /* gl */].getUniformLocation(this.prog, "u_Dimensions");
+        this.unifTexture = __WEBPACK_IMPORTED_MODULE_0__globals__["a" /* gl */].getUniformLocation(this.prog, "u_Texture0");
+        this.unifTexture1 = __WEBPACK_IMPORTED_MODULE_0__globals__["a" /* gl */].getUniformLocation(this.prog, "u_Texture1");
+        this.unifTexture2 = __WEBPACK_IMPORTED_MODULE_0__globals__["a" /* gl */].getUniformLocation(this.prog, "u_Texture2");
+        this.unifTexture3 = __WEBPACK_IMPORTED_MODULE_0__globals__["a" /* gl */].getUniformLocation(this.prog, "u_Texture3");
+        this.unifTexture4 = __WEBPACK_IMPORTED_MODULE_0__globals__["a" /* gl */].getUniformLocation(this.prog, "u_Texture4");
+        this.unifChestOpen = __WEBPACK_IMPORTED_MODULE_0__globals__["a" /* gl */].getUniformLocation(this.prog, "u_ChestOpen");
+        this.unifChestTrigger = __WEBPACK_IMPORTED_MODULE_0__globals__["a" /* gl */].getUniformLocation(this.prog, "u_ChestTriggerTime");
     }
     use() {
         if (activeProgram !== this.prog) {
-            __WEBPACK_IMPORTED_MODULE_1__globals__["a" /* gl */].useProgram(this.prog);
+            __WEBPACK_IMPORTED_MODULE_0__globals__["a" /* gl */].useProgram(this.prog);
             activeProgram = this.prog;
         }
     }
-    setModelMatrix(model) {
-        this.use();
-        if (this.unifModel !== -1) {
-            __WEBPACK_IMPORTED_MODULE_1__globals__["a" /* gl */].uniformMatrix4fv(this.unifModel, false, model);
-        }
-        if (this.unifModelInvTr !== -1) {
-            let modelinvtr = __WEBPACK_IMPORTED_MODULE_0_gl_matrix__["a" /* mat4 */].create();
-            __WEBPACK_IMPORTED_MODULE_0_gl_matrix__["a" /* mat4 */].transpose(modelinvtr, model);
-            __WEBPACK_IMPORTED_MODULE_0_gl_matrix__["a" /* mat4 */].invert(modelinvtr, modelinvtr);
-            __WEBPACK_IMPORTED_MODULE_1__globals__["a" /* gl */].uniformMatrix4fv(this.unifModelInvTr, false, modelinvtr);
-        }
-    }
+    /**
+     * @brief      Sets the view projection matrix.
+     *
+     * @memberof   ShaderProgram
+     *
+     * @param      vp    view projection matrix
+     *
+     */
     setViewProjMatrix(vp) {
         this.use();
         if (this.unifViewProj !== -1) {
-            __WEBPACK_IMPORTED_MODULE_1__globals__["a" /* gl */].uniformMatrix4fv(this.unifViewProj, false, vp);
+            __WEBPACK_IMPORTED_MODULE_0__globals__["a" /* gl */].uniformMatrix4fv(this.unifViewProj, false, vp);
         }
     }
-    setGeometryColor(color) {
+    /**
+     * @brief      Sets the inverse view projection matrix.
+     *
+     * @memberof   ShaderProgram
+     *
+     * @param      ivp    view projection matrix
+     *
+     */
+    setInvViewProjMatrix(ivp) {
         this.use();
-        if (this.unifColor !== -1) {
-            __WEBPACK_IMPORTED_MODULE_1__globals__["a" /* gl */].uniform4fv(this.unifColor, color);
+        if (this.unifInvViewProj !== -1) {
+            __WEBPACK_IMPORTED_MODULE_0__globals__["a" /* gl */].uniformMatrix4fv(this.unifInvViewProj, false, ivp);
+        }
+    }
+    /**
+     * @brief      Sets the inverse view projection matrix.
+     *
+     * @memberof   ShaderProgram
+     *
+     * @param      ivp    view projection matrix
+     *
+     */
+    setScreenDimensions(dimensions) {
+        this.use();
+        if (this.unifDimensions !== -1) {
+            __WEBPACK_IMPORTED_MODULE_0__globals__["a" /* gl */].uniform2i(this.unifDimensions, dimensions[0], dimensions[1]);
+        }
+    }
+    /**
+     * @brief      Sets the camera eye position.
+     *
+     * @memberof   ShaderProgram
+     *
+     * @param      pos   The position
+     *
+     */
+    setEyePosition(pos) {
+        this.use();
+        if (this.unifEye !== -1) {
+            __WEBPACK_IMPORTED_MODULE_0__globals__["a" /* gl */].uniform4fv(this.unifEye, pos);
+        }
+    }
+    /**
+     * @brief      Sets the time (actually frame counter).
+     *
+     * @memberof   ShaderProgram
+     *
+     * @param      time  The time
+     *
+     */
+    setTime(time) {
+        this.use();
+        if (this.unifTime !== -1) {
+            __WEBPACK_IMPORTED_MODULE_0__globals__["a" /* gl */].uniform1i(this.unifTime, time);
+        }
+    }
+    /**
+     * @brief      Sets the texture slot 0 to the uniform variable.
+     *
+     * @memberof   ShaderProgram
+     *
+     */
+    setTexture(slot) {
+        this.use();
+        if (this.unifTexture !== -1 && slot == 0) {
+            __WEBPACK_IMPORTED_MODULE_0__globals__["a" /* gl */].uniform1i(this.unifTexture, 0);
+        }
+        else if (this.unifTexture1 !== -1 && slot == 1) {
+            __WEBPACK_IMPORTED_MODULE_0__globals__["a" /* gl */].uniform1i(this.unifTexture1, 1);
+        }
+        else if (this.unifTexture2 !== -1 && slot == 2) {
+            __WEBPACK_IMPORTED_MODULE_0__globals__["a" /* gl */].uniform1i(this.unifTexture2, 2);
+        }
+        else if (this.unifTexture3 !== -1 && slot == 3) {
+            __WEBPACK_IMPORTED_MODULE_0__globals__["a" /* gl */].uniform1i(this.unifTexture3, 3);
+        }
+    }
+    setChestOpen(time, trigger) {
+        this.use();
+        if (this.unifChestOpen !== -1) {
+            __WEBPACK_IMPORTED_MODULE_0__globals__["a" /* gl */].uniform1i(this.unifChestOpen, time);
+        }
+        if (this.unifChestTrigger !== -1) {
+            __WEBPACK_IMPORTED_MODULE_0__globals__["a" /* gl */].uniform1f(this.unifChestTrigger, trigger);
         }
     }
     draw(d) {
         this.use();
         if (this.attrPos != -1 && d.bindPos()) {
-            __WEBPACK_IMPORTED_MODULE_1__globals__["a" /* gl */].enableVertexAttribArray(this.attrPos);
-            __WEBPACK_IMPORTED_MODULE_1__globals__["a" /* gl */].vertexAttribPointer(this.attrPos, 4, __WEBPACK_IMPORTED_MODULE_1__globals__["a" /* gl */].FLOAT, false, 0, 0);
-        }
-        if (this.attrNor != -1 && d.bindNor()) {
-            __WEBPACK_IMPORTED_MODULE_1__globals__["a" /* gl */].enableVertexAttribArray(this.attrNor);
-            __WEBPACK_IMPORTED_MODULE_1__globals__["a" /* gl */].vertexAttribPointer(this.attrNor, 4, __WEBPACK_IMPORTED_MODULE_1__globals__["a" /* gl */].FLOAT, false, 0, 0);
+            __WEBPACK_IMPORTED_MODULE_0__globals__["a" /* gl */].enableVertexAttribArray(this.attrPos);
+            __WEBPACK_IMPORTED_MODULE_0__globals__["a" /* gl */].vertexAttribPointer(this.attrPos, 4, __WEBPACK_IMPORTED_MODULE_0__globals__["a" /* gl */].FLOAT, false, 0, 0);
         }
         d.bindIdx();
-        __WEBPACK_IMPORTED_MODULE_1__globals__["a" /* gl */].drawElements(d.drawMode(), d.elemCount(), __WEBPACK_IMPORTED_MODULE_1__globals__["a" /* gl */].UNSIGNED_INT, 0);
+        __WEBPACK_IMPORTED_MODULE_0__globals__["a" /* gl */].drawElements(d.drawMode(), d.elemCount(), __WEBPACK_IMPORTED_MODULE_0__globals__["a" /* gl */].UNSIGNED_INT, 0);
         if (this.attrPos != -1)
-            __WEBPACK_IMPORTED_MODULE_1__globals__["a" /* gl */].disableVertexAttribArray(this.attrPos);
-        if (this.attrNor != -1)
-            __WEBPACK_IMPORTED_MODULE_1__globals__["a" /* gl */].disableVertexAttribArray(this.attrNor);
+            __WEBPACK_IMPORTED_MODULE_0__globals__["a" /* gl */].disableVertexAttribArray(this.attrPos);
     }
 }
 ;
@@ -15270,16 +15439,16 @@ class ShaderProgram {
 
 
 /***/ }),
-/* 65 */
+/* 67 */
 /***/ (function(module, exports) {
 
-module.exports = "#version 300 es\n\n//This is a vertex shader. While it is called a \"shader\" due to outdated conventions, this file\n//is used to apply matrix transformations to the arrays of vertex data passed to it.\n//Since this code is run on your GPU, each vertex is transformed simultaneously.\n//If it were run on your CPU, each vertex would have to be processed in a FOR loop, one at a time.\n//This simultaneous transformation allows your program to run much faster, especially when rendering\n//geometry with millions of vertices.\n\nuniform mat4 u_Model;       // The matrix that defines the transformation of the\n                            // object we're rendering. In this assignment,\n                            // this will be the result of traversing your scene graph.\n\nuniform mat4 u_ModelInvTr;  // The inverse transpose of the model matrix.\n                            // This allows us to transform the object's normals properly\n                            // if the object has been non-uniformly scaled.\n\nuniform mat4 u_ViewProj;    // The matrix that defines the camera's transformation.\n                            // We've written a static matrix for you to use for HW2,\n                            // but in HW3 you'll have to generate one yourself\n\nin vec4 vs_Pos;             // The array of vertex positions passed to the shader\n\nin vec4 vs_Nor;             // The array of vertex normals passed to the shader\n\nin vec4 vs_Col;             // The array of vertex colors passed to the shader.\n\nout vec4 fs_Nor;            // The array of normals that has been transformed by u_ModelInvTr. This is implicitly passed to the fragment shader.\nout vec4 fs_LightVec;       // The direction in which our virtual light lies, relative to each vertex. This is implicitly passed to the fragment shader.\nout vec4 fs_Col;            // The color of each vertex. This is implicitly passed to the fragment shader.\n\nconst vec4 lightPos = vec4(5, 5, 3, 1); //The position of our virtual light, which is used to compute the shading of\n                                        //the geometry in the fragment shader.\n\nvoid main()\n{\n    fs_Col = vs_Col;                         // Pass the vertex colors to the fragment shader for interpolation\n\n    mat3 invTranspose = mat3(u_ModelInvTr);\n    fs_Nor = vec4(invTranspose * vec3(vs_Nor), 0);          // Pass the vertex normals to the fragment shader for interpolation.\n                                                            // Transform the geometry's normals by the inverse transpose of the\n                                                            // model matrix. This is necessary to ensure the normals remain\n                                                            // perpendicular to the surface after the surface is transformed by\n                                                            // the model matrix.\n\n\n    vec4 modelposition = u_Model * vs_Pos;   // Temporarily store the transformed vertex positions for use below\n\n    fs_LightVec = lightPos - modelposition;  // Compute the direction in which the light source lies\n\n    gl_Position = u_ViewProj * modelposition;// gl_Position is a built-in variable of OpenGL which is\n                                             // used to render the final positions of the geometry's vertices\n}\n"
+module.exports = "#version 300 es\n\nprecision highp float;\n\nuniform vec4 u_Eye;\nuniform int u_Time;\n\nuniform ivec2 u_Dimensions;\nuniform mat4 u_InvViewProj;\n\nuniform sampler2D u_Texture0;\nuniform sampler2D u_Texture1;\nuniform sampler2D u_Texture2;\n\nuniform int u_ChestOpen;\nuniform float u_ChestTriggerTime;\n\nout vec4 out_Col;\n\nconst float DEGREE_TO_RAD = 0.0174533;\nconst float RAD_TO_DEGREE = 57.2958;\nconst float EPS = 0.001;\n\nconst float EPS2 = 0.01;\n\nconst float PI = 3.14159265359;\nconst float TWO_PI = 6.28318530718;\n\nconst mat4 ROTATION_90_Z = mat4(\n  0, 1, 0, 0,\n  -1, 0, 0, 0,\n  0, 0, 1, 0,\n  0, 0, 0, 1\n);\n\nconst mat4 ROTATION_90_Y = mat4(\n  0, 0, 1, 0,\n  0, 1, 0, 0,\n  -1, 0, 0, 0,\n  0, 0, 0, 1\n);\n\nstruct Material\n{\n  float specPower;\n  vec3 baseColor;\n  bool useEnvMap;\n  float reflectivity;\n};\n\nconst Material gGoldMaterial = Material(128.0, vec3(228.0, 194.0, 105.0) / 255.0, true, 0.25);\nconst Material gMetal3Material = Material(128.0, vec3(221.0, 218.0, 224.0) / 255.0, true, 0.25);\nconst Material gDefault = Material(1.0, vec3(255.0, 128.0, 105.0) / 255.0, false, 0.0);\nconst Material gMetal1Material = Material(64.0, vec3(78.0, 85.0, 91.0) / 255.0, false, 0.0);\nconst Material gMetal2Material = Material(32.0, vec3(128.0, 128.0, 128.0) / 255.0, true, 0.15);\nconst Material gStoneMaterial = Material(1.0, vec3(80.0, 82.0, 71.0) / 255.0, false, 0.0);\nconst Material gSnowMaterial = Material(128.0, vec3(233.0, 231.0, 234.0) / 255.0, false, 0.0);\nconst Material gSilverMaterial = Material(128.0, vec3(113.0, 148.0, 174.0) / 255.0, false, 0.0);\nconst Material gFlagMaterial = Material(0.0, vec3(255.0, 69.0, 51.0) / 255.0, false, 0.0);\nconst Material gSilver2Material = Material(128.0, vec3(231.0, 232.0, 231.0) / 255.0, true, 0.1);\n\nint gMaterialId;\nint sMaterialId;\n\nfloat sdCapsule(vec3 p, vec3 a, vec3 b, float r) {\n  vec3 pa = p - a, ba = b - a;\n  float h = clamp(dot(pa, ba) / dot(ba, ba), 0.0, 1.0);\n  return length(pa - ba * h) - r;\n}\n\nfloat sdSphere( vec3 p, float s )\n{\n  return length(p)-s;\n}\n\nfloat sdCappedCylinder(vec3 p, vec2 h) {\n  vec2 d = abs(vec2(length(p.xz), p.y)) - h;\n  return min(max(d.x, d.y), 0.0) + length(max(d, 0.0));\n}\n\nfloat sdBox( vec3 p, vec3 b )\n{\n  vec3 d = abs(p) - b;\n  return min(max(d.x,max(d.y,d.z)),0.0) + length(max(d,0.0));\n}\n\nfloat sdTorus( vec3 p, vec2 t )\n{\n  vec2 q = vec2(length(p.xz)-t.x,p.y);\n  return length(q)-t.y;\n}\n\nmat4 rotationMatrix(vec3 axis, float angle) {\n  axis = normalize(axis);\n  float s = sin(angle);\n  float c = cos(angle);\n  float oc = 1.0 - c;\n\n  return mat4(\n      oc * axis.x * axis.x + c, oc * axis.x * axis.y - axis.z * s,\n      oc * axis.z * axis.x + axis.y * s, 0.0, oc * axis.x * axis.y + axis.z * s,\n      oc * axis.y * axis.y + c, oc * axis.y * axis.z - axis.x * s, 0.0,\n      oc * axis.z * axis.x - axis.y * s, oc * axis.y * axis.z + axis.x * s,\n      oc * axis.z * axis.z + c, 0.0, 0.0, 0.0, 0.0, 1.0);\n}\n\nvec3 applyTransform(vec3 p, mat4 m) { return vec3(inverse(m) * vec4(p, 1.0)); }\n\nfloat topRing(vec3 p, float width) {\n  // 90 Degrees\n  mat4 m = ROTATION_90_Z;\n  m[3][1] = 0.5;\n  vec3 q = applyTransform(p, m);\n  float cylinder = sdCappedCylinder(q, vec2(1.57, 0.2 * width));\n\n  vec3 cubeP = p - vec3(0, -0.1, 0);\n  float cubeSub = sdBox(cubeP, vec3(0.25, 1.2, 1.8));\n\n  cylinder = max(-cubeSub, cylinder);\n\n  if (cylinder < EPS2) {\n    sMaterialId = 1;\n  }\n\n  return cylinder;\n}\n\nfloat smin( float a, float b, float k )\n{\n    float res = exp( -k*a ) + exp( -k*b );\n    return -log( res )/k;\n}\n\nfloat topChest(vec3 p) {\n  // 90 Degrees\n  mat4 m = ROTATION_90_Z;\n  m[3][1] = 0.5;\n  vec3 q = applyTransform(p, m);\n  float finalValue = sdCappedCylinder(q, vec2(1.5, 1.8));\n\n  vec3 shift = vec3(0, -0.1, 0);\n\n  vec3 cubeP = p - shift;\n\n  float chestUpperSub = sdBox(cubeP, vec3(2.0, 1.2, 1.8));\n  finalValue = max(-chestUpperSub, finalValue);\n\n  if (finalValue < EPS2) {\n    sMaterialId = 2;\n  }\n\n  float topRingValue;\n\n  topRingValue = topRing(p + vec3(0.55, 0, 0), 0.50);\n  float topRings = topRingValue;\n\n  topRingValue = topRing(p + vec3(1.65, 0, 0), 1.0);\n  topRings = min(topRingValue, topRings);\n\n  topRingValue = topRing(p + vec3(-0.55, 0, 0), 0.50);\n  topRings = min(topRingValue, topRings);\n\n  topRingValue = topRing(p + vec3(-1.625, 0, 0), 1.0);\n  topRings = min(topRingValue, topRings);\n\n  finalValue = min(finalValue, topRings);\n\n  float cylinder, cubeSub; \n\n  // Cut the Top Side Rings\n  shift[0] = -1.7;\n  shift[1] = 0.0;\n  shift[2] = 0.0;\n  // 90 Degrees\n  m = rotationMatrix(vec3(0.0, 0.0, 1.0), 1.5708);\n  m[3][1] = 0.5;\n  q = applyTransform(p - shift, m);\n  cylinder = sdCappedCylinder(q, vec2(1.5, 0.2));\n  cubeP = p - vec3(0, -0.1, 0) - shift;\n  cubeSub = sdBox(cubeP, vec3(0.25, 1.2, 1.8));\n  cylinder = max(-cubeSub, cylinder);\n  finalValue = max(-cylinder, finalValue);\n\n  shift[0] = 0.0;\n  shift[1] = 0.1;\n  shift[2] = 0.0;\n  cylinder = sdCappedCylinder(q - shift, vec2(1.5, 0.2));\n  cubeSub = sdBox(cubeP - vec3(0.1, 0, 0), vec3(0.25, 1.2, 1.8));\n  cylinder = max(-cubeSub, cylinder);\n  finalValue = min(finalValue, cylinder);\n\n  if (cylinder < EPS2) {\n    sMaterialId = 2;\n  }\n\n  shift[0] = 1.7;\n  shift[1] = 0.0;\n  shift[2] = 0.0;\n  // 90 Degrees\n  m = rotationMatrix(vec3(0.0, 0.0, 1.0), 1.5708);\n  m[3][1] = 0.5;\n  q = applyTransform(p - shift, m);\n  cylinder = sdCappedCylinder(q, vec2(1.5, 0.2));\n  cubeP = p - vec3(0, -0.1, 0) - shift;\n  cubeSub = sdBox(cubeP, vec3(0.25, 1.2, 1.8));\n  cylinder = max(-cubeSub, cylinder);\n  finalValue = max(-cylinder, finalValue);\n\n  shift[0] = 0.0;\n  shift[1] = -0.1;\n  shift[2] = 0.0;\n  cylinder = sdCappedCylinder(q - shift, vec2(1.5, 0.2));\n  cubeSub = sdBox(cubeP - vec3(-0.1, 0, 0), vec3(0.25, 1.2, 1.8));\n  cylinder = max(-cubeSub, cylinder);\n  finalValue = min(finalValue, cylinder);\n\n  if (cylinder < EPS2) {\n    sMaterialId = 2;\n  }\n\n  /*=============================\n  =            Bolts            =\n  =============================*/\n\n  float c1;\n  vec3 q1;\n\n  shift = vec3(0.0, 1.34, 1.29);\n\n  q1 = p - shift - vec3(1.625, 0, 0);\n  c1 = sdSphere(q1, 0.05);\n  finalValue = min(c1, finalValue);\n\n  if (c1 < EPS2) {\n    sMaterialId = 5;\n  }\n\n  shift[1] = 1.68;\n  shift[2] = 1.0;\n  q1 = p - shift - vec3(1.625, 0, 0);\n  c1 = sdSphere(q1, 0.05);\n  finalValue = min(c1, finalValue);\n\n  if (c1 < EPS2) {\n    sMaterialId = 5;\n  }\n\n  shift[1] = 1.95;\n  shift[2] = 0.55;\n  q1 = p - shift - vec3(1.625, 0, 0);\n  c1 = sdSphere(q1, 0.05);\n  finalValue = min(c1, finalValue);\n\n  if (c1 < EPS2) {\n    sMaterialId = 5;\n  }\n\n  shift[1] = 1.34;\n  shift[2] = -1.29;\n  shift[0] = 0.0;\n  q1 = p - shift - vec3(1.625, 0, 0);\n  c1 = sdSphere(q1, 0.05);\n  finalValue = min(c1, finalValue);\n\n  if (c1 < EPS2) {\n    sMaterialId = 5;\n  }\n\n  shift[1] = 1.68;\n  shift[2] = -1.0;\n  q1 = p - shift - vec3(1.625, 0, 0);\n  c1 = sdSphere(q1, 0.05);\n  finalValue = min(c1, finalValue);\n\n  if (c1 < EPS2) {\n    sMaterialId = 5;\n  }\n\n  shift[1] = 1.95;\n  shift[2] = -0.55;\n  q1 = p - shift - vec3(1.625, 0, 0);\n  c1 = sdSphere(q1, 0.05);\n  finalValue = min(c1, finalValue);\n\n  if (c1 < EPS2) {\n    sMaterialId = 5;\n  }\n\n  shift[1] = 2.04;\n  shift[2] = 0.0;\n  q1 = p - shift - vec3(1.625, 0, 0);\n  c1 = sdSphere(q1, 0.05);\n  finalValue = min(c1, finalValue);\n\n  if (c1 < EPS2) {\n    sMaterialId = 5;\n  }\n\n  // Other Side\n\n  shift[1] = 1.34;\n  shift[2] = 1.29;\n  shift[0] = 0.0;\n  q1 = p - shift + vec3(1.625, 0, 0);\n  c1 = sdSphere(q1, 0.05);\n  finalValue = min(c1, finalValue);\n\n  if (c1 < EPS2) {\n    sMaterialId = 5;\n  }\n\n  shift[1] = 1.68;\n  shift[2] = 1.0;\n  q1 = p - shift + vec3(1.625, 0, 0);\n  c1 = sdSphere(q1, 0.05);\n  finalValue = min(c1, finalValue);\n\n  if (c1 < EPS2) {\n    sMaterialId = 5;\n  }\n\n  shift[1] = 1.95;\n  shift[2] = 0.55;\n  q1 = p - shift + vec3(1.625, 0, 0);\n  c1 = sdSphere(q1, 0.05);\n  finalValue = min(c1, finalValue);\n\n  if (c1 < EPS2) {\n    sMaterialId = 5;\n  }\n\n  shift[1] = 1.34;\n  shift[2] = -1.29;\n  shift[0] = 0.0;\n  q1 = p - shift + vec3(1.625, 0, 0);\n  c1 = sdSphere(q1, 0.05);\n  finalValue = min(c1, finalValue);\n\n  if (c1 < EPS2) {\n    sMaterialId = 5;\n  }\n\n  shift[1] = 1.68;\n  shift[2] = -1.0;\n  q1 = p - shift + vec3(1.625, 0, 0);\n  c1 = sdSphere(q1, 0.05);\n  finalValue = min(c1, finalValue);\n\n  if (c1 < EPS2) {\n    sMaterialId = 5;\n  }\n\n  shift[1] = 1.95;\n  shift[2] = -0.55;\n  q1 = p - shift + vec3(1.625, 0, 0);\n  c1 = sdSphere(q1, 0.05);\n  finalValue = min(c1, finalValue);\n\n  if (c1 < EPS2) {\n    sMaterialId = 5;\n  }\n\n  shift[1] = 2.04;\n  shift[2] = 0.0;\n  q1 = p - shift + vec3(1.625, 0, 0);\n  c1 = sdSphere(q1, 0.05);\n  finalValue = min(c1, finalValue);\n\n  if (c1 < EPS2) {\n    sMaterialId = 5;\n  }\n\n  /*=====  End of Bolts  ======*/\n\n  shift[0] = 0.0;\n  shift[1] = 1.07;\n  shift[2] = 0.0;\n  q1 = p - shift;\n  float topChestRingMain = sdBox(q1, vec3(1.9, 0.06, 1.5));\n  if (topChestRingMain < EPS2) {\n    sMaterialId = 1;\n  }\n\n  finalValue = min(finalValue, topChestRingMain);\n\n  float topCut;\n  // 90 Degrees\n  m = ROTATION_90_Z;\n  m[3][1] = 0.5;\n  q = applyTransform(p, m);\n  topCut = sdCappedCylinder(q, vec2(1.3, 1.6));\n\n  shift = vec3(0, -0.4, 0);\n\n  cubeP = p - shift;\n\n  chestUpperSub = sdBox(cubeP, vec3(2.0, 1.2, 1.8));\n  topCut = max(-chestUpperSub, topCut);\n\n  finalValue = max(-topCut, finalValue);\n\n  return finalValue;\n}\n\nfloat botRing(vec3 p, float width) {\n  float finalValue;\n  vec3 shift = vec3(0, 0, 0);\n\n  shift[1] = 0.07;\n  vec3 q = p - shift;\n  float chestBase = sdBox(q, vec3(0.2 * width, 0.73, 1.79));\n  finalValue = chestBase;\n\n  mat4 m1 = rotationMatrix(vec3(1.0, 0.0, 0.0), -9.0 * DEGREE_TO_RAD);\n  mat4 m2 = rotationMatrix(vec3(1.0, 0.0, 0.0), 9.0 * DEGREE_TO_RAD);\n  m1[3][2] = 2.72;\n  m2[3][2] = -2.72;\n  vec3 q1 = applyTransform(p, m1);\n  vec3 q2 = applyTransform(p, m2);\n  float c1 = sdBox(q1, vec3(2.6, 1.4, 1.4));\n  float c2 = sdBox(q2, vec3(2.6, 1.4, 1.4));\n\n  finalValue = max(-c1, finalValue);\n  finalValue = max(-c2, finalValue);\n\n  return finalValue;\n}\n\nfloat handle(vec3 p) {\n  float finalValue;\n  vec3 q1;\n  float c1;\n  vec3 shift = vec3(0,0,0);\n\n  c1 = sdCapsule(p, vec3(-0.3, 0, 0), vec3(0.3, 0, 0), 0.05);\n  finalValue = c1;\n\n  if (c1 < EPS2) {\n    sMaterialId = 1;\n  }\n\n  // 90 Degrees\n  mat4 m2 = rotationMatrix(vec3(1.0, 0.0, 0.0), 1.5708);\n  m2[3][1] = -0.04;\n  m2[3][0] = 0.0;\n  q1 = applyTransform(p, m2);\n  float torus = sdTorus(q1, vec2(0.3, 0.05));\n\n  if (torus < EPS2) {\n    sMaterialId = 6;\n  }\n\n  shift[1] = 0.15;\n  shift[0] = 0.0;\n  q1 = p - shift;\n  c1 = sdBox(q1, vec3(0.6, 0.3, 0.1));\n  float blend1 = max(-c1, torus);\n\n\n\n  shift[1] = -0.16;\n  shift[0] = 0.28;\n  q1 = p - shift;\n  float blend2 = sdCapsule(q1, vec3(0.0, 0.0, 0), vec3(-0.045, 0.15, 0), 0.04);\n\n  if (blend2 < EPS2) {\n    sMaterialId = 6;\n  }\n\n  shift[1] = -0.16;\n  shift[0] = -0.28;\n  q1 = p - shift;\n  float blend3 = sdCapsule(q1, vec3(0.0, 0.0, 0), vec3(0.045, 0.15, 0), 0.04);\n\n  if (blend3 < EPS2) {\n    sMaterialId = 6;\n  }\n\n  c1 = smin( blend1, blend2 , 64.0);\n  c1 = smin( c1, blend3 , 64.0);\n  finalValue = min(c1, finalValue);\n\n  return finalValue;\n}\n\nfloat botChest(vec3 p) {\n  float finalValue;\n  vec3 shift = vec3(0, 0, 0);\n\n  shift[1] = 0.2;\n  vec3 q = p - shift;\n  float chestBase = sdBox(q, vec3(1.8, 0.8, 1.72));\n  finalValue = chestBase;\n\n  mat4 m1 = rotationMatrix(vec3(1.0, 0.0, 0.0), -9.0 * DEGREE_TO_RAD);\n  mat4 m2 = rotationMatrix(vec3(1.0, 0.0, 0.0), 9.0 * DEGREE_TO_RAD);\n  m1[3][2] = 2.65;\n  m2[3][2] = -2.65;\n  vec3 q1 = applyTransform(p, m1);\n  vec3 q2 = applyTransform(p, m2);\n  float c1 = sdBox(q1, vec3(2.6, 1.4, 1.4));\n  float c2 = sdBox(q2, vec3(2.6, 1.4, 1.4));\n\n  finalValue = max(-c1, finalValue);\n  finalValue = max(-c2, finalValue);\n\n  if (finalValue < EPS2) {\n    sMaterialId = 2;\n  }\n\n  float botRingSingle, botRings;\n\n  botRingSingle = botRing(p + vec3(0.55, 0, 0), 0.5);\n  botRings = botRingSingle;\n\n  botRingSingle = botRing(p - vec3(0.55, 0, 0), 0.5);\n  botRings = min(botRings, botRingSingle);\n\n  botRingSingle = botRing(p + vec3(1.625, 0, 0), 1.0);\n  botRings = min(botRings, botRingSingle);\n\n  botRingSingle = botRing(p - vec3(1.625, 0, 0), 1.0);\n  botRings = min(botRings, botRingSingle);\n\n  if (botRings < EPS2) {\n    sMaterialId = 1;\n  }\n\n  shift[1] = 0.45;\n  shift[2] = 1.35;\n  shift[0] = 0.0;\n  q1 = p - shift - vec3(1.625, 0, 0);\n  c1 = sdSphere(q1, 0.05);\n  finalValue = min(c1, finalValue);\n\n  if (c1 < EPS2) {\n    sMaterialId = 5;\n  }\n\n  q1 = p - shift + vec3(1.625, 0, 0);\n  c1 = sdSphere(q1, 0.05);\n  finalValue = min(c1, finalValue);\n\n  if (c1 < EPS2) {\n    sMaterialId = 5;\n  }\n\n  shift[1] = -0.4;\n  shift[2] = 1.22;\n  q1 = p - shift - vec3(1.625, 0, 0);\n  c1 = sdSphere(q1, 0.05);\n  finalValue = min(c1, finalValue);\n\n  if (c1 < EPS2) {\n    sMaterialId = 5;\n  }\n\n  q1 = p - shift + vec3(1.625, 0, 0);\n  c1 = sdSphere(q1, 0.05);\n  finalValue = min(c1, finalValue);\n\n  if (c1 < EPS2) {\n    sMaterialId = 5;\n  }\n\n  finalValue = min(botRings, finalValue);\n\n  float internalBase = sdBox(p - vec3(0.0, 0.8, 0), vec3(1.5, 0.3, 1.4));\n\n  m1 = rotationMatrix(vec3(1.0, 0.0, 0.0), -9.0 * DEGREE_TO_RAD);\n  m2 = rotationMatrix(vec3(1.0, 0.0, 0.0), 9.0 * DEGREE_TO_RAD);\n  m1[3][2] = 2.5;\n  m2[3][2] = -2.5;\n  q1 = applyTransform(p, m1);\n  q2 = applyTransform(p, m2);\n  c1 = sdBox(q1, vec3(2.5, 1.4, 1.4));\n  c2 = sdBox(q2, vec3(2.5, 1.4, 1.4));\n\n  internalBase = max(-c1, internalBase);\n  internalBase = max(-c2, internalBase);\n\n  if (internalBase < EPS2) {\n    sMaterialId = 2;\n  }\n\n  finalValue = max(-internalBase, finalValue);\n\n  return finalValue;\n}\n\nfloat rand(float n){return fract(sin(n) * 43758.5453123);}\n\nfloat noise1D(float p){\n  float fl = floor(p);\n  float fc = fract(p);\n  return mix(rand(fl), rand(fl + 1.0), fc);\n}\n\nfloat fbm1D(float x) {\n  float v = 0.0;\n  float a = 0.5;\n  float shift = float(100);\n  for (int i = 0; i < 6; ++i) {\n    v += a * noise1D(x);\n    x = x * 2.0 + shift;\n    a *= 0.5;\n  }\n  return v;\n}\n\nfloat flagSDF(vec3 position) {\n  float finalValue;\n  float c1;\n  vec3 q1;\n\n  // 90 Degrees\n  mat4 mat = rotationMatrix(vec3(0.0, 1.0, 0.0), -1.5708);\n  vec3 p = position - vec3(2.25, 2.0, 0.0);\n  p = applyTransform(p, mat);\n\n  float timeStamp = mod(float(u_Time) * 0.2, 20.0);\n  float val = 0.0;\n\n  if (timeStamp < 10.0) {\n    val = mix(0.0, -0.3 , (timeStamp - 0.0) / 10.0);\n  } else if (timeStamp < 20.0) {\n    val = mix(-0.3 , 0.0, (timeStamp - 10.0) / 10.0);\n  }\n\n  float c = cos(val*(p.y - 0.9));\n  float s = sin(val*(p.y - 0.9));\n  mat2  m = mat2(c,s,-s,c);\n  vec3  q = vec3(p.x, m*p.yz);\n  \n  finalValue = sdBox(q, vec3(0.5, 0.9, 0.02));\n\n  if (finalValue < EPS2) {\n    sMaterialId = 8;\n  }\n\n  mat = rotationMatrix(vec3(0.0, 0.0, 1.0), 45.0 * DEGREE_TO_RAD);\n  q1 = applyTransform(q - vec3(0, -1.0,0.0), mat);\n  c1 = sdBox(q1, vec3(0.5, 0.5, 0.1));\n  finalValue = max(-c1, finalValue);\n\n  q1 = position - vec3(2.1, 0.0, 0.0);\n  c1 = sdCappedCylinder(q1, vec2(0.08, 2.5));\n  finalValue = min(finalValue, c1);\n\n  if (c1 < EPS2) {\n    sMaterialId = 7;\n  }\n\n  return finalValue;\n}\n\nfloat chestSuprise(vec3 p) {\n  float finalValue;\n\n  finalValue = sdCappedCylinder(p, vec2(0.1, 0.004));\n\n  for(int i=0; i<10; ++i) {\n    float rand = rand(float(i));\n\n    float coinVal = sdCappedCylinder(p - vec3(float(i) * 0.1, rand/10.0, rand), vec2(0.05, 0.002));\n\n    finalValue = min(coinVal, finalValue);\n  }\n\n  for(int i=0; i<10; ++i) {\n    float rand = rand(float(i));\n\n    float coinVal = sdCappedCylinder(p - vec3(float(i) * 0.02, rand/13.0, rand/3.0), vec2(0.05, 0.002));\n\n    finalValue = min(coinVal, finalValue);\n  }\n\n  for(int i=0; i<10; ++i) {\n    float rand = rand(float(i));\n\n    float coinVal = sdCappedCylinder(p - vec3(float(i) * 0.19, rand/13.0, rand), vec2(0.05, 0.002));\n\n    finalValue = min(coinVal, finalValue);\n  }\n\n  return finalValue;\n}\n\nfloat chestMiddle(vec3 p) {\n  float finalValue;\n  vec3 shift = vec3(0, 0, 0);\n\n  shift[1] = 0.8;\n  vec3 q = p - shift;\n  float chestBase = sdBox(q, vec3(1.9, 0.2, 1.5));\n  finalValue = chestBase;\n\n  float internalBase = sdBox(p - vec3(0.0, 0.9, 0), vec3(1.6, 0.3, 1.3));\n  // finalValue = min(internalBase, finalValue);\n  finalValue = max(-internalBase, finalValue);\n\n\n  mat4 m1 = rotationMatrix(vec3(1.0, 0.0, 0.0), 6.0 * DEGREE_TO_RAD);\n  mat4 m2 = rotationMatrix(vec3(1.0, 0.0, 0.0), -6.0 * DEGREE_TO_RAD);\n  m1[3][1] = 0.94;\n  m1[3][2] = 1.5;\n  m2[3][1] = 0.94;\n  m2[3][2] = -1.5;\n\n  vec3 q1 = applyTransform(p, m1);\n  float c1 = sdBox(q1, vec3(2.0, 0.11, 0.1));\n  finalValue = max(-c1, finalValue);\n\n  q1 = applyTransform(p, m2);\n  c1 = sdBox(q1, vec3(2.0, 0.11, 0.1));\n  finalValue = max(-c1, finalValue);\n\n  shift[0] = 1.9;\n  shift[1] = 0.94;\n  shift[2] = 0.0;\n  q1 = p - shift;\n  c1 = sdBox(q1, vec3(0.1, 0.11, 1.5));\n  finalValue = max(-c1, finalValue);\n\n  shift[0] = -1.9;\n  q1 = p - shift;\n  c1 = sdBox(q1, vec3(0.1, 0.11, 1.5));\n  finalValue = max(-c1, finalValue);\n\n  if (finalValue < EPS2) {\n    sMaterialId = 1;\n  }\n\n  // 90 Degrees\n  mat4 m3 = rotationMatrix(vec3(1.0, 0.0, 0.0), 1.5708);\n  m3[3][1] = 0.7;\n  m3[3][2] = 1.45;\n  m3[3][0] = 0.0;\n  q1 = applyTransform(p, m3);\n  float cylinder = sdCappedCylinder(q1, vec2(0.3, 0.05));\n  finalValue = min(cylinder, finalValue);\n\n  if (cylinder < EPS2) {\n    sMaterialId = 1;\n  }\n\n  m3[3][1] = 0.7;\n  m3[3][2] = 1.55;\n  m3[3][0] = 0.0;\n  q1 = applyTransform(p, m3);\n  cylinder = sdCappedCylinder(q1, vec2(0.175, 0.1));\n  finalValue = min(cylinder, finalValue);\n\n  if (cylinder < EPS2) {\n    sMaterialId = 1;\n  }\n\n  shift[0] = 0.0;\n  shift[1] = 0.89;\n  shift[2] = 1.38;\n  q1 = p - shift;\n  c1 = sdSphere(q1 + vec3(0.55, 0, 0), 0.05);\n  finalValue = min(c1, finalValue);\n\n  if (c1 < EPS2) {\n    sMaterialId = 5;\n  }\n\n  q1 = p - shift;\n  c1 = sdSphere(q1 - vec3(0.55, 0, 0), 0.05);\n  finalValue = min(c1, finalValue);\n\n  if (c1 < EPS2) {\n    sMaterialId = 5;\n  }\n\n  q1 = p - shift;\n  c1 = sdSphere(q1 + vec3(1.65, 0, 0), 0.05);\n  finalValue = min(c1, finalValue);\n\n  if (c1 < EPS2) {\n    sMaterialId = 5;\n  }\n\n  q1 = p - shift;\n  c1 = sdSphere(q1 - vec3(1.65, 0, 0), 0.05);\n  finalValue = min(c1, finalValue);\n\n  if (c1 < EPS2) {\n    sMaterialId = 5;\n  }\n\n  shift[0] = 0.0;\n  shift[1] = 0.73;\n  shift[2] = 1.6;\n  q1 = p - shift;\n  c1 = handle(q1);\n  finalValue = min(c1, finalValue);\n\n  internalBase = sdBox(p - vec3(0.0, 0.8, 0), vec3(1.5, 0.3, 1.4));\n\n  m1 = rotationMatrix(vec3(1.0, 0.0, 0.0), -9.0 * DEGREE_TO_RAD);\n  m2 = rotationMatrix(vec3(1.0, 0.0, 0.0), 9.0 * DEGREE_TO_RAD);\n  m1[3][2] = 2.5;\n  m2[3][2] = -2.5;\n  q1 = applyTransform(p, m1);\n  vec3 q2 = applyTransform(p, m2);\n  c1 = sdBox(q1, vec3(2.5, 1.4, 1.4));\n  float c2 = sdBox(q2, vec3(2.5, 1.4, 1.4));\n\n  internalBase = max(-c1, internalBase);\n  internalBase = max(-c2, internalBase);\n\n  finalValue = max(-internalBase, finalValue);\n\n  if (u_ChestOpen == 1) {\n    float coins = chestSuprise(p - vec3(0, 0.5, -0.5));\n\n    m1 = ROTATION_90_Y;\n    q1 = applyTransform(p, m1);\n\n    float coins2 = chestSuprise(q1 - vec3(-0.7, 0.5, -0.9));\n    coins = min(coins2, coins);\n\n    float coins3 = chestSuprise(q1 - vec3(-0.5, 0.5, 0.2));\n    coins = min(coins3, coins);\n\n    finalValue = min(coins, finalValue);\n\n    if (coins < EPS2) {\n      sMaterialId = 9;\n    }\n  }\n\n  return finalValue;\n}\n\nvec4 permute(vec4 x){return mod(((x*34.0)+1.0)*x, 289.0);}\nvec4 taylorInvSqrt(vec4 r){return 1.79284291400159 - 0.85373472095314 * r;}\n\nvec3 permute(vec3 x) { return mod(((x*34.0)+1.0)*x, 289.0); }\n\nfloat snoise(vec2 v){\n  const vec4 C = vec4(0.211324865405187, 0.366025403784439,\n           -0.577350269189626, 0.024390243902439);\n  vec2 i  = floor(v + dot(v, C.yy) );\n  vec2 x0 = v -   i + dot(i, C.xx);\n  vec2 i1;\n  i1 = (x0.x > x0.y) ? vec2(1.0, 0.0) : vec2(0.0, 1.0);\n  vec4 x12 = x0.xyxy + C.xxzz;\n  x12.xy -= i1;\n  i = mod(i, 289.0);\n  vec3 p = permute( permute( i.y + vec3(0.0, i1.y, 1.0 ))\n  + i.x + vec3(0.0, i1.x, 1.0 ));\n  vec3 m = max(0.5 - vec3(dot(x0,x0), dot(x12.xy,x12.xy),\n    dot(x12.zw,x12.zw)), 0.0);\n  m = m*m ;\n  m = m*m ;\n  vec3 x = 2.0 * fract(p * C.www) - 1.0;\n  vec3 h = abs(x) - 0.5;\n  vec3 ox = floor(x + 0.5);\n  vec3 a0 = x - ox;\n  m *= 1.79284291400159 - 0.85373472095314 * ( a0*a0 + h*h );\n  vec3 g;\n  g.x  = a0.x  * x0.x  + h.x  * x0.y;\n  g.yz = a0.yz * x12.xz + h.yz * x12.yw;\n  return 130.0 * dot(m, g);\n}\n\nfloat snoise(vec3 v){ \n  const vec2  C = vec2(1.0/6.0, 1.0/3.0) ;\n  const vec4  D = vec4(0.0, 0.5, 1.0, 2.0);\n\n// First corner\n  vec3 i  = floor(v + dot(v, C.yyy) );\n  vec3 x0 =   v - i + dot(i, C.xxx) ;\n\n// Other corners\n  vec3 g = step(x0.yzx, x0.xyz);\n  vec3 l = 1.0 - g;\n  vec3 i1 = min( g.xyz, l.zxy );\n  vec3 i2 = max( g.xyz, l.zxy );\n\n  //  x0 = x0 - 0. + 0.0 * C \n  vec3 x1 = x0 - i1 + 1.0 * C.xxx;\n  vec3 x2 = x0 - i2 + 2.0 * C.xxx;\n  vec3 x3 = x0 - 1. + 3.0 * C.xxx;\n\n// Permutations\n  i = mod(i, 289.0 ); \n  vec4 p = permute( permute( permute( \n             i.z + vec4(0.0, i1.z, i2.z, 1.0 ))\n           + i.y + vec4(0.0, i1.y, i2.y, 1.0 )) \n           + i.x + vec4(0.0, i1.x, i2.x, 1.0 ));\n\n// Gradients\n// ( N*N points uniformly over a square, mapped onto an octahedron.)\n  float n_ = 1.0/7.0; // N=7\n  vec3  ns = n_ * D.wyz - D.xzx;\n\n  vec4 j = p - 49.0 * floor(p * ns.z *ns.z);  //  mod(p,N*N)\n\n  vec4 x_ = floor(j * ns.z);\n  vec4 y_ = floor(j - 7.0 * x_ );    // mod(j,N)\n\n  vec4 x = x_ *ns.x + ns.yyyy;\n  vec4 y = y_ *ns.x + ns.yyyy;\n  vec4 h = 1.0 - abs(x) - abs(y);\n\n  vec4 b0 = vec4( x.xy, y.xy );\n  vec4 b1 = vec4( x.zw, y.zw );\n\n  vec4 s0 = floor(b0)*2.0 + 1.0;\n  vec4 s1 = floor(b1)*2.0 + 1.0;\n  vec4 sh = -step(h, vec4(0.0));\n\n  vec4 a0 = b0.xzyw + s0.xzyw*sh.xxyy ;\n  vec4 a1 = b1.xzyw + s1.xzyw*sh.zzww ;\n\n  vec3 p0 = vec3(a0.xy,h.x);\n  vec3 p1 = vec3(a0.zw,h.y);\n  vec3 p2 = vec3(a1.xy,h.z);\n  vec3 p3 = vec3(a1.zw,h.w);\n\n//Normalise gradients\n  vec4 norm = taylorInvSqrt(vec4(dot(p0,p0), dot(p1,p1), dot(p2, p2), dot(p3,p3)));\n  p0 *= norm.x;\n  p1 *= norm.y;\n  p2 *= norm.z;\n  p3 *= norm.w;\n\n// Mix final noise value\n  vec4 m = max(0.6 - vec4(dot(x0,x0), dot(x1,x1), dot(x2,x2), dot(x3,x3)), 0.0);\n  m = m * m;\n  return 42.0 * dot( m*m, vec4( dot(p0,x0), dot(p1,x1), \n                                dot(p2,x2), dot(p3,x3) ) );\n}\n\nfloat simplexFBM(vec3 x, int octaves) {\n  float v = 0.0;\n  float a = 0.5;\n  vec3 shift = vec3(100);\n  for (int i = 0; i < octaves; ++i) {\n    v += a * snoise(x);\n    x = x * 2.0 + shift;\n    a *= 0.5;\n  }\n  return v;\n}\n\nfloat simplexFBM2D( in vec2 p, int octaves ){\n  float s = 0.0;\n  float m = 0.0;\n  float a = 0.5;\n  \n  for( int i=0; i< octaves; i++ ){\n    s += a * snoise(p);\n    m += a;\n    a *= 0.5;\n    p *= 2.0;\n  }\n  return s/m;\n}\n\n\n\n// DIMS: 2.0,2.1,1.7\nfloat sceneSDF(vec3 position) {\n  position = position - vec3(0, 0.4, 0);\n  position = position * 2.0;\n\n  float finalDistance = 0.0;\n\n  // float rads = mix(0.0, 45.0 * DEGREE_TO_RAD, mod(float(u_Time) * 0.08, 10.0) / 10.0 );\n\n  float timeStamp = float(u_ChestTriggerTime) * 0.32;\n  float val = 0.0;\n\n  if (timeStamp < 10.0) {\n    if (u_ChestOpen == 1) {\n        val = mix(0.0, 45.0 * DEGREE_TO_RAD , timeStamp / 10.0);\n      } else if (u_ChestOpen == 0) {\n        val = mix(45.0 * DEGREE_TO_RAD , 0.0, timeStamp / 10.0);\n      }\n  } else {\n    if (u_ChestOpen == 1) {\n        val = 45.0 * DEGREE_TO_RAD;\n      } else if (u_ChestOpen == 0) {\n        val = 0.0;\n      }\n  }\n\n  vec3 q = position - vec3(0.0, 0.0, 0.0);\n  mat4 m = rotationMatrix(vec3(1.0, 0.0, 0.0), val);\n  m[3][0] = 0.0;\n  m[3][1] = 0.75;\n  m[3][2] = -1.5;\n  q = applyTransform(q, m);\n  q = q - vec3(0.0, -0.85, 1.5);\n\n  float topPart = topChest(q);\n  float botPart = botChest(position);\n  float middlePart = chestMiddle(position);\n\n  float flagPart1 = flagSDF(position);\n\n  finalDistance = topPart;\n  finalDistance = min(topPart, finalDistance);\n  finalDistance = min(botPart, finalDistance);\n  finalDistance = min(middlePart, finalDistance);\n  finalDistance = min(flagPart1, finalDistance);\n\n  // float bounding = sdBox(position, vec3(2.0,2.1,1.7));\n  // finalDistance = min(bounding, finalDistance);\n\n  // finalDistance = cap;\n  // finalDistance = min(dist, cap);\n\n  // float cap = sdCappedCone\n  return finalDistance / 2.0;\n}\n\nbool rayMarchScene(in vec3 rayOrigin, in vec3 rayDir, out float finalValue) {\n  float dist = 0.0;\n  float eps = 0.001;\n\n  for (int step = 0; step < 50; ++step) {\n    vec3 position = rayOrigin + dist * rayDir;\n\n    float dt = sceneSDF(position);\n\n    if (dt < eps) {\n      finalValue = dist;\n      return true;\n    }\n\n    dist += dt;\n  }\n\n  return false;\n}\n\nvec2 sphereToUV(vec3 p)\n{\n    float phi = atan(p.z, p.x); // Returns atan(z/x)\n    if(phi < 0.0)\n    {\n        phi += TWO_PI; // [0, TWO_PI] range now\n    }\n\n    float theta = acos(p.y); // [0, PI]\n    return vec2(1.0 - phi / TWO_PI, 1.0 - theta / PI);\n}\n\nbool boxIntersection( vec3 ro, vec3 rd, \n                      vec3 boxSize ) \n{\n    vec3 m = 1.0/rd;\n    vec3 n = m*ro;\n    vec3 k = abs(m)*boxSize;\n  \n    vec3 t1 = -n - k;\n    vec3 t2 = -n + k;\n\n    float tN = max( max( t1.x, t1.y ), t1.z );\n    float tF = min( min( t2.x, t2.y ), t2.z );\n  \n    if( tN > tF || tF < 0.0) return false; // no intersection\n    \n\n    return true;\n}\n\n#define HASHSCALE1 .1031\n\nfloat hash(vec2 p)\n{\n  vec3 p3  = fract(vec3(p.xyx) * HASHSCALE1);\n    p3 += dot(p3, p3.yzx + 19.19);\n    return fract((p3.x + p3.y) * p3.z);\n}\n\nfloat noise( in vec2 x )\n{\n    vec2 p = floor(x);\n    vec2 f = fract(x);\n    f = f*f*(3.0-2.0*f);\n  \n    return mix(mix( hash(p+vec2(0,0)), \n                        hash(p+vec2(1,0)),f.x),\n                   mix( hash(p+vec2(0,1)), \n                        hash(p+vec2(1,1)),f.x),f.y);\n}\n\nfloat fbmTerrain( in vec2 p , float scale){\n  float s = 0.0;\n  float m = 0.0;\n  float a = 0.5;\n\n  vec2 original = p;\n\n  for( int i=0; i< 9; i++ ){\n    s += a * abs(noise(p * scale));\n    m += a;\n    a *= 0.5;\n    p *= 2.0;\n  }\n\n  return (s/m) * 7.0;\n}\n\nfloat mixTerrain(in vec2 p) {\n  float len = length(p);\n  float amt = clamp(len / 8.0, 0.0, 1.0);\n\n  if (len > 10.0) {\n    return 0.0;\n  }\n\n  float noise1 = fbmTerrain(p, 0.25);\n  // float noise2 = fbmTerrain(p, 0.02);\n\n  return mix(0.0, noise1, amt);\n}\n\n\nfloat mixTerrain2(in vec2 p) {\n  vec2 uv = (p + vec2(14.0, 14.0)) / (28.0);\n\n  vec4 value = texture(u_Texture1, uv);\n  // float noise2 = fbmTerrain(p, 0.02);\n\n  return value.r * 7.0;\n}\n\nvec3 getNormal( const vec3 p, const float eps )\n{\n    vec3 n = vec3( mixTerrain(vec2(p.x-eps,p.z)) - mixTerrain(vec2(p.x+eps,p.z)),\n                         2.0f*eps,\n                         mixTerrain(vec2(p.x,p.z-eps)) - mixTerrain(vec2(p.x,p.z+eps)) );\n    return normalize( n );\n}\n\nbool castRay( const vec3 ro, const vec3 rd, out float resT, out float height )\n{\n    float delt = 0.01f;\n    const float mint = 0.001f;\n    const float maxt = 20.0f;\n    float lh = 0.0f;\n    float ly = 0.0f;\n    for( float t = mint; t < maxt; t += delt )\n    {\n        vec3  p = ro + rd * t;\n        float h = mixTerrain2( p.xz );\n        if( p.y < h )\n        {\n            height = h;\n            // interpolate the intersection distance\n            resT = t - delt + delt*(lh-ly)/(p.y-ly-h+lh);\n            return true;\n        }\n        // allow the error to be proportinal to the distance\n        delt = 0.01f*t;\n        lh = h;\n        ly = p.y;\n    }\n    return false;\n}\n\nfloat softshadow( in vec3 ro, in vec3 rd, float mint, float maxt, float k )\n{\n    float res = 1.0;\n    for( float t=mint; t < maxt; )\n    {\n        float h = sceneSDF(ro + rd*t);\n        if( h<0.001 )\n            return 0.0;\n        res = min( res, k*h/t );\n        t += h;\n    }\n    return res;\n}\n\nconst vec3 lightPosition = vec3(-20, 15, 20);\nconst vec3 lightColor = vec3(254, 254, 180) / 255.0;\n\nbool processTerrain(const vec3 rayOrigin, const vec3 rayDir, out float resultT, out vec3 worldPosition, out vec3 worldNormal) {\n  float value = 0.0;\n  float height = 0.0;\n  bool result = castRay(rayOrigin, rayDir, value, height);\n\n  if (result) {\n    vec3 terrainPosition = rayOrigin + value * rayDir;\n    vec3 norm = getNormal(terrainPosition, 0.001);\n\n    worldPosition = terrainPosition;\n    worldNormal = norm;\n    resultT = value;\n\n    float noise = (simplexFBM(worldPosition * 0.7, 8) + 1.0) / 2.0;\n    gMaterialId = 3;\n\n    if (noise > 0.6 && height > 0.4) {\n      gMaterialId = 4;\n    }\n\n    return true;\n  }\n\n  return false;\n}\n\n// Uncharted 2 Tonemapping made by John Hable, filmicworlds.com\nvec3 uc2Tonemap(vec3 x)\n{\n   return ((x*(0.15*x+0.1*0.5)+0.2*0.02)/(x*(0.15*x+0.5)+0.2*0.3))-0.02/0.3;\n}\n\nvec3 tonemap(vec3 x, float exposure, float invGamma, float whiteBalance) {\n    vec3 white = vec3(whiteBalance);\n    vec3 color = uc2Tonemap(exposure * x);\n    vec3 whitemap = 1.0 / uc2Tonemap(white);\n    color *= whitemap;\n    return pow(color, vec3(invGamma));\n}\n\nvoid main() {\n  vec4 finalColor = vec4(0.0, 0.0, 0.0, 1.0);\n  gMaterialId = 0;\n  sMaterialId = 0;\n\n  float ka = 0.2;\n  float kd = 0.5;\n  float ks = 0.3;\n\n  vec3 lightColor = vec3(1,1,0);\n\n  vec2 ndc = (gl_FragCoord.xy / vec2(u_Dimensions)) * 2.0 - 1.0;\n\n  // Find a point on the Far Plane\n  vec4 pointInFarPlane = vec4(ndc.xy, 1, 1);\n  pointInFarPlane *= 1000.0;\n  vec4 worldSpacePoint = u_InvViewProj * pointInFarPlane;\n\n  // Ray from Camera to Far Plane World Point\n  vec3 rayDir = normalize(worldSpacePoint.xyz - u_Eye.xyz);\n  vec3 rayOrigin = u_Eye.xyz;\n\n  vec3 terrainPosition;\n  vec3 terrainNormal;\n  float terrainParam = 999.0;\n  bool terrainTest = false;\n\n  bool sceneTest = boxIntersection(rayOrigin, rayDir, vec3(2.1,2.3,1.5));\n  bool sceneIntersection = false;\n\n  terrainTest = processTerrain(rayOrigin, rayDir, terrainParam, terrainPosition, terrainNormal);\n  float distance = -1.0;\n\n\n  if (sceneTest) {\n    sceneIntersection = rayMarchScene(rayOrigin, rayDir, distance);\n  }\n\n  vec3 finalPosition;\n  vec3 finalNormal;\n\n  if (sceneTest && sceneIntersection && (terrainParam > distance)) {\n    finalPosition = rayOrigin + distance * rayDir;\n\n    gMaterialId = sMaterialId;\n\n    float eps = 0.001;\n    float dx = sceneSDF(finalPosition + vec3(eps, 0, 0)) -\n               sceneSDF(finalPosition - vec3(eps, 0, 0));\n    float dy = sceneSDF(finalPosition + vec3(0, eps, 0)) -\n               sceneSDF(finalPosition - vec3(0, eps, 0));\n    float dz = sceneSDF(finalPosition + vec3(0, 0, eps)) -\n               sceneSDF(finalPosition - vec3(0, 0, eps));\n\n    finalNormal = normalize(vec3(dx, dy, dz));\n  } else if (terrainTest) {\n    finalNormal = normalize(terrainNormal);\n    finalPosition = terrainPosition;\n  } else {\n    // Sky\n    vec2 skyUV = sphereToUV(rayDir);\n    out_Col = texture(u_Texture2, skyUV);\n    return;\n  }\n\n  float diffuseTerm =\n      max(0.0, dot(normalize(finalNormal), normalize(lightPosition)));\n\n  float specularTerm;\n  vec3 materialColor;\n\n  Material activeMaterial;\n\n  switch (gMaterialId) {\n    case 1:\n      activeMaterial = gGoldMaterial;\n      break;\n\n    case 2:\n      activeMaterial = gMetal1Material;\n      ka = 0.2;\n      kd = 0.7;\n      ks = 0.1;\n      break;\n\n    case 3:\n      activeMaterial = gStoneMaterial;\n      ka = 0.2;\n      kd = 0.7;\n      ks = 0.1;\n      break;\n\n    case 4:\n      activeMaterial = gSnowMaterial;\n      break;\n\n    case 5:\n      activeMaterial = gMetal2Material;\n      break;\n\n    case 6:\n      activeMaterial = gMetal3Material;\n      break;\n\n    case 7:\n      activeMaterial = gSilverMaterial;\n      break;\n\n    case 8:\n      activeMaterial = gFlagMaterial;\n      break;\n\n    case 9:\n      activeMaterial = gSilver2Material;\n      break;\n\n    default:\n      activeMaterial = gDefault;\n      break;\n  }\n\n  materialColor = activeMaterial.baseColor;\n\n  if (activeMaterial.useEnvMap) {\n    vec3 incomingRay = normalize(u_Eye.xyz - finalPosition);\n    vec3 reflectedDirection = normalize(reflect(incomingRay, finalNormal));\n    vec2 uvs = sphereToUV(reflectedDirection);\n\n    materialColor += vec3(texture(u_Texture0, uvs)) * activeMaterial.reflectivity;\n  }\n\n  float noise = (simplexFBM2D(finalPosition.xz * 0.08 + vec2(float(u_Time) * 0.001, float(u_Time) * 0.0007), 8)) + 0.3;\n  noise = clamp(noise, 0.0, 1.0);\n\n  vec3 lightIntensity = vec3(1.0);\n\n  vec3 clouds = vec3(noise, noise, noise);\n\n  // float val;\n  // if (rayMarchScene(finalPosition + 0.01 * finalNormal, normalize(lightPosition - finalPosition), val)) {\n  //   lightIntensity = 0.0;\n  // }\n  float shadow = softshadow(finalPosition + 0.01 * finalNormal, normalize(lightPosition - finalPosition), 0.01, 10.0, 4.0);\n  vec3 cshadow = pow(vec3(shadow), vec3(1.0, 1.2, 1.5));\n  // materialColor = materialColor * cshadow;\n\n\n  float sun = clamp( dot( finalNormal, normalize(lightPosition - finalPosition) ), 0.0, 1.0 );\n  lightIntensity  = sun * vec3(1.84,1.27,0.99) * cshadow;\n\n  lightIntensity = lightIntensity * clouds;\n\n  if (diffuseTerm > 0.0 && activeMaterial.specPower > 0.0) {\n    /*----------  Blinn Phong  ----------*/\n    vec3 viewVec = normalize(u_Eye.xyz - finalPosition);\n    vec3 lightVec = normalize(lightPosition - finalPosition);\n\n    // vec3 H = normalize(vec3(viewVec + lightVec) / 2.0f);\n    // specularTerm = max(pow(dot(H, finalNormal), activeMaterial.specPower), 0.0);\n\n    vec3 R = normalize(reflect(-lightVec, finalNormal));\n    specularTerm = pow(max(0.0, dot(R, viewVec)), activeMaterial.specPower);\n  }\n\n  vec3 fragColor =\n      (ka * materialColor) + lightIntensity * ((kd * materialColor * diffuseTerm) + ks * specularTerm);\n\n  // fragColor *= 1.3;  // Hardcoded Exposure Adjustment\n  // vec3 x = max(vec3(0.0), fragColor - 0.004);\n  // fragColor = (x*(6.2*x+.5))/(x*(6.2*x+1.7)+0.06);\n\n //  fragColor *= 4.0;  // Hardcoded Exposure Adjustment\n // fragColor = fragColor/(1.0+fragColor);\n // fragColor = pow(fragColor, vec3(1.0/2.2));\n\n float whiteBalance = 9.2;\n float exposure = 10.0;\n float invGamma = 1.0 / 0.8;\n\n fragColor = tonemap(fragColor , exposure, invGamma, whiteBalance);\n\n  finalColor = vec4(fragColor, 1.0f);\n\n  out_Col = finalColor;\n}\n"
 
 /***/ }),
-/* 66 */
+/* 68 */
 /***/ (function(module, exports) {
 
-module.exports = "#version 300 es\n\n// This is a fragment shader. If you've opened this file first, please\n// open and read lambert.vert.glsl before reading on.\n// Unlike the vertex shader, the fragment shader actually does compute\n// the shading of geometry. For every pixel in your program's output\n// screen, the fragment shader is run for every bit of geometry that\n// particular pixel overlaps. By implicitly interpolating the position\n// data passed into the fragment shader by the vertex shader, the fragment shader\n// can compute what color to apply to its pixel based on things like vertex\n// position, light position, and vertex color.\nprecision highp float;\n\nuniform vec4 u_Color; // The color with which to render this instance of geometry.\n\n// These are the interpolated values out of the rasterizer, so you can't know\n// their specific values without knowing the vertices that contributed to them\nin vec4 fs_Nor;\nin vec4 fs_LightVec;\nin vec4 fs_Col;\n\nout vec4 out_Col; // This is the final output color that you will see on your\n                  // screen for the pixel that is currently being processed.\n\nvoid main()\n{\n    // Material base color (before shading)\n        vec4 diffuseColor = u_Color;\n\n        // Calculate the diffuse term for Lambert shading\n        float diffuseTerm = dot(normalize(fs_Nor), normalize(fs_LightVec));\n        // Avoid negative lighting values\n        // diffuseTerm = clamp(diffuseTerm, 0, 1);\n\n        float ambientTerm = 0.2;\n\n        float lightIntensity = diffuseTerm + ambientTerm;   //Add a small float value to the color multiplier\n                                                            //to simulate ambient lighting. This ensures that faces that are not\n                                                            //lit by our point light are not completely black.\n\n        // Compute final shaded color\n        out_Col = vec4(diffuseColor.rgb * lightIntensity, diffuseColor.a);\n}\n"
+module.exports = "#version 300 es\n\nprecision highp float;\n\nuniform vec4 u_Eye;\nuniform int u_Time;\n\nuniform ivec2 u_Dimensions;\nuniform mat4 u_InvViewProj;\n\nuniform sampler2D u_Texture0;\n\nout vec4 out_Col;\n\nconst float DEGREE_TO_RAD = 0.0174533;\nconst float RAD_TO_DEGREE = 57.2958;\nconst float EPS = 0.001;\n\nconst float EPS2 = 0.01;\n\nconst float PI = 3.14159265359;\nconst float TWO_PI = 6.28318530718;\n\nstruct Material\n{\n  float specPower;\n  vec3 baseColor;\n  bool useEnvMap;\n  float reflectivity;\n};\n\nconst Material gGoldMaterial = Material(128.0, vec3(228.0, 194.0, 105.0) / 255.0, true, 0.25);\nconst Material gMetal3Material = Material(128.0, vec3(221.0, 218.0, 224.0) / 255.0, true, 0.25);\nconst Material gDefault = Material(1.0, vec3(255.0, 128.0, 105.0) / 255.0, false, 0.0);\nconst Material gMetal1Material = Material(64.0, vec3(78.0, 85.0, 91.0) / 255.0, false, 0.0);\nconst Material gMetal2Material = Material(32.0, vec3(128.0, 128.0, 128.0) / 255.0, true, 0.15);\nconst Material gStoneMaterial = Material(1.0, vec3(80.0, 82.0, 71.0) / 255.0, false, 0.0);\nconst Material gSnowMaterial = Material(128.0, vec3(233.0, 231.0, 234.0) / 255.0, false, 0.0);\n\nint gMaterialId;\nint sMaterialId;\n\nfloat sdEllipsoid(in vec3 p, in vec3 r) {\n  return (length(p / r) - 1.0) * min(min(r.x, r.y), r.z);\n}\n\nfloat sdCapsule(vec3 p, vec3 a, vec3 b, float r) {\n  vec3 pa = p - a, ba = b - a;\n  float h = clamp(dot(pa, ba) / dot(ba, ba), 0.0, 1.0);\n  return length(pa - ba * h) - r;\n}\n\nfloat sdCone(vec3 p, vec2 c) {\n  // c must be normalized\n  float q = length(p.xy);\n  return dot(c, vec2(q, p.z));\n}\n\nfloat sdSphere( vec3 p, float s )\n{\n  return length(p)-s;\n}\n\nfloat sdCappedCylinder(vec3 p, vec2 h) {\n  vec2 d = abs(vec2(length(p.xz), p.y)) - h;\n  return min(max(d.x, d.y), 0.0) + length(max(d, 0.0));\n}\n\nfloat opI(float d1, float d2) { return max(d1, d2); }\n\n\nfloat sdBox( vec3 p, vec3 b )\n{\n  vec3 d = abs(p) - b;\n  return min(max(d.x,max(d.y,d.z)),0.0) + length(max(d,0.0));\n}\n\nfloat sdTorus( vec3 p, vec2 t )\n{\n  vec2 q = vec2(length(p.xz)-t.x,p.y);\n  return length(q)-t.y;\n}\n\nfloat sdCappedCone( in vec3 p, in vec3 c )\n{\n    vec2 q = vec2( length(p.xz), p.y );\n    vec2 v = vec2( c.z*c.y/c.x, -c.z );\n    vec2 w = v - q;\n    vec2 vv = vec2( dot(v,v), v.x*v.x );\n    vec2 qv = vec2( dot(v,w), v.x*w.x );\n    vec2 d = max(qv,0.0)*qv/vv;\n    return sqrt( dot(w,w) - max(d.x,d.y) ) * sign(max(q.y*v.x-q.x*v.y,w.y));\n}\n\nmat4 rotationMatrix(vec3 axis, float angle) {\n  axis = normalize(axis);\n  float s = sin(angle);\n  float c = cos(angle);\n  float oc = 1.0 - c;\n\n  return mat4(\n      oc * axis.x * axis.x + c, oc * axis.x * axis.y - axis.z * s,\n      oc * axis.z * axis.x + axis.y * s, 0.0, oc * axis.x * axis.y + axis.z * s,\n      oc * axis.y * axis.y + c, oc * axis.y * axis.z - axis.x * s, 0.0,\n      oc * axis.z * axis.x - axis.y * s, oc * axis.y * axis.z + axis.x * s,\n      oc * axis.z * axis.z + c, 0.0, 0.0, 0.0, 0.0, 1.0);\n}\n\nvec3 applyTransform(vec3 p, mat4 m) { return vec3(inverse(m) * vec4(p, 1.0)); }\n\nfloat topRing(vec3 p, float width) {\n  mat4 m = rotationMatrix(vec3(0.0, 0.0, 1.0), 90.0 * DEGREE_TO_RAD);\n  m[3][1] = 0.5;\n  vec3 q = applyTransform(p, m);\n  float cylinder = sdCappedCylinder(q, vec2(1.57, 0.2 * width));\n\n  vec3 cubeP = p - vec3(0, -0.1, 0);\n  float cubeSub = sdBox(cubeP, vec3(0.25, 1.2, 1.8));\n\n  cylinder = max(-cubeSub, cylinder);\n\n  if (cylinder < EPS2) {\n    sMaterialId = 1;\n  }\n\n  return cylinder;\n}\n\nfloat smin( float a, float b, float k )\n{\n    float res = exp( -k*a ) + exp( -k*b );\n    return -log( res )/k;\n}\n\nfloat topChest(vec3 p) {\n  mat4 m = rotationMatrix(vec3(0.0, 0.0, 1.0), 90.0 * DEGREE_TO_RAD);\n  m[3][1] = 0.5;\n  vec3 q = applyTransform(p, m);\n  float finalValue = sdCappedCylinder(q, vec2(1.5, 1.8));\n\n  vec3 shift = vec3(0, -0.1, 0);\n\n  vec3 cubeP = p - shift;\n\n  float chestUpperSub = sdBox(cubeP, vec3(2.0, 1.2, 1.8));\n  finalValue = max(-chestUpperSub, finalValue);\n\n  if (finalValue < EPS2) {\n    sMaterialId = 2;\n  }\n\n  float topRingValue;\n\n  topRingValue = topRing(p + vec3(0.55, 0, 0), 0.50);\n  float topRings = topRingValue;\n\n  topRingValue = topRing(p + vec3(1.65, 0, 0), 1.0);\n  topRings = min(topRingValue, topRings);\n\n  topRingValue = topRing(p + vec3(-0.55, 0, 0), 0.50);\n  topRings = min(topRingValue, topRings);\n\n  topRingValue = topRing(p + vec3(-1.625, 0, 0), 1.0);\n  topRings = min(topRingValue, topRings);\n\n  finalValue = min(finalValue, topRings);\n\n  float cylinder, cubeSub; \n\n  // Cut the Top Side Rings\n  shift[0] = -1.7;\n  shift[1] = 0.0;\n  shift[2] = 0.0;\n  m = rotationMatrix(vec3(0.0, 0.0, 1.0), 90.0 * DEGREE_TO_RAD);\n  m[3][1] = 0.5;\n  q = applyTransform(p - shift, m);\n  cylinder = sdCappedCylinder(q, vec2(1.5, 0.2));\n  cubeP = p - vec3(0, -0.1, 0) - shift;\n  cubeSub = sdBox(cubeP, vec3(0.25, 1.2, 1.8));\n  cylinder = max(-cubeSub, cylinder);\n  finalValue = max(-cylinder, finalValue);\n\n  shift[0] = 0.0;\n  shift[1] = 0.1;\n  shift[2] = 0.0;\n  cylinder = sdCappedCylinder(q - shift, vec2(1.5, 0.2));\n  cubeSub = sdBox(cubeP - vec3(0.1, 0, 0), vec3(0.25, 1.2, 1.8));\n  cylinder = max(-cubeSub, cylinder);\n  finalValue = min(finalValue, cylinder);\n\n  if (cylinder < EPS2) {\n    sMaterialId = 2;\n  }\n\n  shift[0] = 1.7;\n  shift[1] = 0.0;\n  shift[2] = 0.0;\n  m = rotationMatrix(vec3(0.0, 0.0, 1.0), 90.0 * DEGREE_TO_RAD);\n  m[3][1] = 0.5;\n  q = applyTransform(p - shift, m);\n  cylinder = sdCappedCylinder(q, vec2(1.5, 0.2));\n  cubeP = p - vec3(0, -0.1, 0) - shift;\n  cubeSub = sdBox(cubeP, vec3(0.25, 1.2, 1.8));\n  cylinder = max(-cubeSub, cylinder);\n  finalValue = max(-cylinder, finalValue);\n\n  shift[0] = 0.0;\n  shift[1] = -0.1;\n  shift[2] = 0.0;\n  cylinder = sdCappedCylinder(q - shift, vec2(1.5, 0.2));\n  cubeSub = sdBox(cubeP - vec3(-0.1, 0, 0), vec3(0.25, 1.2, 1.8));\n  cylinder = max(-cubeSub, cylinder);\n  finalValue = min(finalValue, cylinder);\n\n  if (cylinder < EPS2) {\n    sMaterialId = 2;\n  }\n\n  /*=============================\n  =            Bolts            =\n  =============================*/\n\n  float c1;\n  vec3 q1;\n\n  shift = vec3(0.0, 1.34, 1.29);\n\n  q1 = p - shift - vec3(1.625, 0, 0);\n  c1 = sdSphere(q1, 0.05);\n  finalValue = min(c1, finalValue);\n\n  if (c1 < EPS2) {\n    sMaterialId = 5;\n  }\n\n  shift[1] = 1.68;\n  shift[2] = 1.0;\n  q1 = p - shift - vec3(1.625, 0, 0);\n  c1 = sdSphere(q1, 0.05);\n  finalValue = min(c1, finalValue);\n\n  if (c1 < EPS2) {\n    sMaterialId = 5;\n  }\n\n  shift[1] = 1.95;\n  shift[2] = 0.55;\n  q1 = p - shift - vec3(1.625, 0, 0);\n  c1 = sdSphere(q1, 0.05);\n  finalValue = min(c1, finalValue);\n\n  if (c1 < EPS2) {\n    sMaterialId = 5;\n  }\n\n  shift[1] = 1.34;\n  shift[2] = -1.29;\n  shift[0] = 0.0;\n  q1 = p - shift - vec3(1.625, 0, 0);\n  c1 = sdSphere(q1, 0.05);\n  finalValue = min(c1, finalValue);\n\n  if (c1 < EPS2) {\n    sMaterialId = 5;\n  }\n\n  shift[1] = 1.68;\n  shift[2] = -1.0;\n  q1 = p - shift - vec3(1.625, 0, 0);\n  c1 = sdSphere(q1, 0.05);\n  finalValue = min(c1, finalValue);\n\n  if (c1 < EPS2) {\n    sMaterialId = 5;\n  }\n\n  shift[1] = 1.95;\n  shift[2] = -0.55;\n  q1 = p - shift - vec3(1.625, 0, 0);\n  c1 = sdSphere(q1, 0.05);\n  finalValue = min(c1, finalValue);\n\n  if (c1 < EPS2) {\n    sMaterialId = 5;\n  }\n\n  shift[1] = 2.04;\n  shift[2] = 0.0;\n  q1 = p - shift - vec3(1.625, 0, 0);\n  c1 = sdSphere(q1, 0.05);\n  finalValue = min(c1, finalValue);\n\n  if (c1 < EPS2) {\n    sMaterialId = 5;\n  }\n\n  // Other Side\n\n  shift[1] = 1.34;\n  shift[2] = 1.29;\n  shift[0] = 0.0;\n  q1 = p - shift + vec3(1.625, 0, 0);\n  c1 = sdSphere(q1, 0.05);\n  finalValue = min(c1, finalValue);\n\n  if (c1 < EPS2) {\n    sMaterialId = 5;\n  }\n\n  shift[1] = 1.68;\n  shift[2] = 1.0;\n  q1 = p - shift + vec3(1.625, 0, 0);\n  c1 = sdSphere(q1, 0.05);\n  finalValue = min(c1, finalValue);\n\n  if (c1 < EPS2) {\n    sMaterialId = 5;\n  }\n\n  shift[1] = 1.95;\n  shift[2] = 0.55;\n  q1 = p - shift + vec3(1.625, 0, 0);\n  c1 = sdSphere(q1, 0.05);\n  finalValue = min(c1, finalValue);\n\n  if (c1 < EPS2) {\n    sMaterialId = 5;\n  }\n\n  shift[1] = 1.34;\n  shift[2] = -1.29;\n  shift[0] = 0.0;\n  q1 = p - shift + vec3(1.625, 0, 0);\n  c1 = sdSphere(q1, 0.05);\n  finalValue = min(c1, finalValue);\n\n  if (c1 < EPS2) {\n    sMaterialId = 5;\n  }\n\n  shift[1] = 1.68;\n  shift[2] = -1.0;\n  q1 = p - shift + vec3(1.625, 0, 0);\n  c1 = sdSphere(q1, 0.05);\n  finalValue = min(c1, finalValue);\n\n  if (c1 < EPS2) {\n    sMaterialId = 5;\n  }\n\n  shift[1] = 1.95;\n  shift[2] = -0.55;\n  q1 = p - shift + vec3(1.625, 0, 0);\n  c1 = sdSphere(q1, 0.05);\n  finalValue = min(c1, finalValue);\n\n  if (c1 < EPS2) {\n    sMaterialId = 5;\n  }\n\n  shift[1] = 2.04;\n  shift[2] = 0.0;\n  q1 = p - shift + vec3(1.625, 0, 0);\n  c1 = sdSphere(q1, 0.05);\n  finalValue = min(c1, finalValue);\n\n  if (c1 < EPS2) {\n    sMaterialId = 5;\n  }\n\n  /*=====  End of Bolts  ======*/\n\n  shift[0] = 0.0;\n  shift[1] = 1.07;\n  shift[2] = 0.0;\n  q1 = p - shift;\n  float topChestRingMain = sdBox(q1, vec3(1.9, 0.06, 1.5));\n  if (topChestRingMain < EPS2) {\n    sMaterialId = 1;\n  }\n\n  finalValue = min(finalValue, topChestRingMain);\n\n  float topCut;\n  m = rotationMatrix(vec3(0.0, 0.0, 1.0), 90.0 * DEGREE_TO_RAD);\n  m[3][1] = 0.5;\n  q = applyTransform(p, m);\n  topCut = sdCappedCylinder(q, vec2(1.3, 1.6));\n\n  shift = vec3(0, -0.4, 0);\n\n  cubeP = p - shift;\n\n  chestUpperSub = sdBox(cubeP, vec3(2.0, 1.2, 1.8));\n  topCut = max(-chestUpperSub, topCut);\n\n  finalValue = max(-topCut, finalValue);\n\n  return finalValue;\n}\n\nfloat botRing(vec3 p, float width) {\n  float finalValue;\n  vec3 shift = vec3(0, 0, 0);\n\n  shift[1] = 0.07;\n  vec3 q = p - shift;\n  float chestBase = sdBox(q, vec3(0.2 * width, 0.73, 1.79));\n  finalValue = chestBase;\n\n  mat4 m1 = rotationMatrix(vec3(1.0, 0.0, 0.0), -9.0 * DEGREE_TO_RAD);\n  mat4 m2 = rotationMatrix(vec3(1.0, 0.0, 0.0), 9.0 * DEGREE_TO_RAD);\n  m1[3][2] = 2.72;\n  m2[3][2] = -2.72;\n  vec3 q1 = applyTransform(p, m1);\n  vec3 q2 = applyTransform(p, m2);\n  float c1 = sdBox(q1, vec3(2.6, 1.4, 1.4));\n  float c2 = sdBox(q2, vec3(2.6, 1.4, 1.4));\n\n  finalValue = max(-c1, finalValue);\n  finalValue = max(-c2, finalValue);\n\n  return finalValue;\n}\n\nfloat handle(vec3 p) {\n  float finalValue;\n  vec3 q1;\n  float c1;\n  vec3 shift = vec3(0,0,0);\n\n  c1 = sdCapsule(p, vec3(-0.3, 0, 0), vec3(0.3, 0, 0), 0.05);\n  finalValue = c1;\n\n  if (c1 < EPS2) {\n    sMaterialId = 1;\n  }\n\n  mat4 m2 = rotationMatrix(vec3(1.0, 0.0, 0.0), 90.0 * DEGREE_TO_RAD);\n  m2[3][1] = -0.04;\n  m2[3][0] = 0.0;\n  q1 = applyTransform(p, m2);\n  float torus = sdTorus(q1, vec2(0.3, 0.05));\n\n  if (torus < EPS2) {\n    sMaterialId = 6;\n  }\n\n  shift[1] = 0.15;\n  shift[0] = 0.0;\n  q1 = p - shift;\n  c1 = sdBox(q1, vec3(0.6, 0.3, 0.1));\n  float blend1 = max(-c1, torus);\n\n\n\n  shift[1] = -0.16;\n  shift[0] = 0.28;\n  q1 = p - shift;\n  float blend2 = sdCapsule(q1, vec3(0.0, 0.0, 0), vec3(-0.045, 0.15, 0), 0.04);\n\n  if (blend2 < EPS2) {\n    sMaterialId = 6;\n  }\n\n  shift[1] = -0.16;\n  shift[0] = -0.28;\n  q1 = p - shift;\n  float blend3 = sdCapsule(q1, vec3(0.0, 0.0, 0), vec3(0.045, 0.15, 0), 0.04);\n\n  if (blend3 < EPS2) {\n    sMaterialId = 6;\n  }\n\n  c1 = smin( blend1, blend2 , 64.0);\n  c1 = smin( c1, blend3 , 64.0);\n  finalValue = min(c1, finalValue);\n\n  return finalValue;\n}\n\nfloat botChest(vec3 p) {\n  float finalValue;\n  vec3 shift = vec3(0, 0, 0);\n\n  shift[1] = 0.2;\n  vec3 q = p - shift;\n  float chestBase = sdBox(q, vec3(1.8, 0.8, 1.72));\n  finalValue = chestBase;\n\n  mat4 m1 = rotationMatrix(vec3(1.0, 0.0, 0.0), -9.0 * DEGREE_TO_RAD);\n  mat4 m2 = rotationMatrix(vec3(1.0, 0.0, 0.0), 9.0 * DEGREE_TO_RAD);\n  m1[3][2] = 2.65;\n  m2[3][2] = -2.65;\n  vec3 q1 = applyTransform(p, m1);\n  vec3 q2 = applyTransform(p, m2);\n  float c1 = sdBox(q1, vec3(2.6, 1.4, 1.4));\n  float c2 = sdBox(q2, vec3(2.6, 1.4, 1.4));\n\n  finalValue = max(-c1, finalValue);\n  finalValue = max(-c2, finalValue);\n\n  if (finalValue < EPS2) {\n    sMaterialId = 2;\n  }\n\n  float botRingSingle, botRings;\n\n  botRingSingle = botRing(p + vec3(0.55, 0, 0), 0.5);\n  botRings = botRingSingle;\n\n  botRingSingle = botRing(p - vec3(0.55, 0, 0), 0.5);\n  botRings = min(botRings, botRingSingle);\n\n  botRingSingle = botRing(p + vec3(1.625, 0, 0), 1.0);\n  botRings = min(botRings, botRingSingle);\n\n  botRingSingle = botRing(p - vec3(1.625, 0, 0), 1.0);\n  botRings = min(botRings, botRingSingle);\n\n  if (botRings < EPS2) {\n    sMaterialId = 1;\n  }\n\n  shift[1] = 0.45;\n  shift[2] = 1.35;\n  shift[0] = 0.0;\n  q1 = p - shift - vec3(1.625, 0, 0);\n  c1 = sdSphere(q1, 0.05);\n  finalValue = min(c1, finalValue);\n\n  if (c1 < EPS2) {\n    sMaterialId = 5;\n  }\n\n  q1 = p - shift + vec3(1.625, 0, 0);\n  c1 = sdSphere(q1, 0.05);\n  finalValue = min(c1, finalValue);\n\n  if (c1 < EPS2) {\n    sMaterialId = 5;\n  }\n\n  shift[1] = -0.4;\n  shift[2] = 1.22;\n  q1 = p - shift - vec3(1.625, 0, 0);\n  c1 = sdSphere(q1, 0.05);\n  finalValue = min(c1, finalValue);\n\n  if (c1 < EPS2) {\n    sMaterialId = 5;\n  }\n\n  q1 = p - shift + vec3(1.625, 0, 0);\n  c1 = sdSphere(q1, 0.05);\n  finalValue = min(c1, finalValue);\n\n  if (c1 < EPS2) {\n    sMaterialId = 5;\n  }\n\n  finalValue = min(botRings, finalValue);\n\n  float internalBase = sdBox(p - vec3(0.0, 0.8, 0), vec3(1.5, 0.3, 1.4));\n\n  m1 = rotationMatrix(vec3(1.0, 0.0, 0.0), -9.0 * DEGREE_TO_RAD);\n  m2 = rotationMatrix(vec3(1.0, 0.0, 0.0), 9.0 * DEGREE_TO_RAD);\n  m1[3][2] = 2.5;\n  m2[3][2] = -2.5;\n  q1 = applyTransform(p, m1);\n  q2 = applyTransform(p, m2);\n  c1 = sdBox(q1, vec3(2.5, 1.4, 1.4));\n  c2 = sdBox(q2, vec3(2.5, 1.4, 1.4));\n\n  internalBase = max(-c1, internalBase);\n  internalBase = max(-c2, internalBase);\n\n  if (internalBase < EPS2) {\n    sMaterialId = 2;\n  }\n\n  finalValue = max(-internalBase, finalValue);\n\n\n  return finalValue;\n}\n\nfloat chestMiddle(vec3 p) {\n  float finalValue;\n  vec3 shift = vec3(0, 0, 0);\n\n  shift[1] = 0.8;\n  vec3 q = p - shift;\n  float chestBase = sdBox(q, vec3(1.9, 0.2, 1.5));\n  finalValue = chestBase;\n\n  float internalBase = sdBox(p - vec3(0.0, 0.9, 0), vec3(1.6, 0.3, 1.3));\n  // finalValue = min(internalBase, finalValue);\n  finalValue = max(-internalBase, finalValue);\n\n\n  mat4 m1 = rotationMatrix(vec3(1.0, 0.0, 0.0), 6.0 * DEGREE_TO_RAD);\n  mat4 m2 = rotationMatrix(vec3(1.0, 0.0, 0.0), -6.0 * DEGREE_TO_RAD);\n  m1[3][1] = 0.94;\n  m1[3][2] = 1.5;\n  m2[3][1] = 0.94;\n  m2[3][2] = -1.5;\n\n  vec3 q1 = applyTransform(p, m1);\n  float c1 = sdBox(q1, vec3(2.0, 0.11, 0.1));\n  finalValue = max(-c1, finalValue);\n\n  q1 = applyTransform(p, m2);\n  c1 = sdBox(q1, vec3(2.0, 0.11, 0.1));\n  finalValue = max(-c1, finalValue);\n\n  shift[0] = 1.9;\n  shift[1] = 0.94;\n  shift[2] = 0.0;\n  q1 = p - shift;\n  c1 = sdBox(q1, vec3(0.1, 0.11, 1.5));\n  finalValue = max(-c1, finalValue);\n\n  shift[0] = -1.9;\n  q1 = p - shift;\n  c1 = sdBox(q1, vec3(0.1, 0.11, 1.5));\n  finalValue = max(-c1, finalValue);\n\n  if (finalValue < EPS2) {\n    sMaterialId = 1;\n  }\n\n  mat4 m3 = rotationMatrix(vec3(1.0, 0.0, 0.0), 90.0 * DEGREE_TO_RAD);\n  m3[3][1] = 0.7;\n  m3[3][2] = 1.45;\n  m3[3][0] = 0.0;\n  q1 = applyTransform(p, m3);\n  float cylinder = sdCappedCylinder(q1, vec2(0.3, 0.05));\n  finalValue = min(cylinder, finalValue);\n\n  if (cylinder < EPS2) {\n    sMaterialId = 1;\n  }\n\n  m3[3][1] = 0.7;\n  m3[3][2] = 1.55;\n  m3[3][0] = 0.0;\n  q1 = applyTransform(p, m3);\n  cylinder = sdCappedCylinder(q1, vec2(0.175, 0.1));\n  finalValue = min(cylinder, finalValue);\n\n  if (cylinder < EPS2) {\n    sMaterialId = 1;\n  }\n\n  shift[0] = 0.0;\n  shift[1] = 0.89;\n  shift[2] = 1.38;\n  q1 = p - shift;\n  c1 = sdSphere(q1 + vec3(0.55, 0, 0), 0.05);\n  finalValue = min(c1, finalValue);\n\n  if (c1 < EPS2) {\n    sMaterialId = 5;\n  }\n\n  q1 = p - shift;\n  c1 = sdSphere(q1 - vec3(0.55, 0, 0), 0.05);\n  finalValue = min(c1, finalValue);\n\n  if (c1 < EPS2) {\n    sMaterialId = 5;\n  }\n\n  q1 = p - shift;\n  c1 = sdSphere(q1 + vec3(1.65, 0, 0), 0.05);\n  finalValue = min(c1, finalValue);\n\n  if (c1 < EPS2) {\n    sMaterialId = 5;\n  }\n\n  q1 = p - shift;\n  c1 = sdSphere(q1 - vec3(1.65, 0, 0), 0.05);\n  finalValue = min(c1, finalValue);\n\n  if (c1 < EPS2) {\n    sMaterialId = 5;\n  }\n\n  shift[0] = 0.0;\n  shift[1] = 0.73;\n  shift[2] = 1.6;\n  q1 = p - shift;\n  c1 = handle(q1);\n  finalValue = min(c1, finalValue);\n\n  internalBase = sdBox(p - vec3(0.0, 0.8, 0), vec3(1.5, 0.3, 1.4));\n\n  m1 = rotationMatrix(vec3(1.0, 0.0, 0.0), -9.0 * DEGREE_TO_RAD);\n  m2 = rotationMatrix(vec3(1.0, 0.0, 0.0), 9.0 * DEGREE_TO_RAD);\n  m1[3][2] = 2.5;\n  m2[3][2] = -2.5;\n  q1 = applyTransform(p, m1);\n  vec3 q2 = applyTransform(p, m2);\n  c1 = sdBox(q1, vec3(2.5, 1.4, 1.4));\n  float c2 = sdBox(q2, vec3(2.5, 1.4, 1.4));\n\n  internalBase = max(-c1, internalBase);\n  internalBase = max(-c2, internalBase);\n\n  finalValue = max(-internalBase, finalValue);\n\n  return finalValue;\n}\n\nvec4 permute(vec4 x){return mod(((x*34.0)+1.0)*x, 289.0);}\nvec4 taylorInvSqrt(vec4 r){return 1.79284291400159 - 0.85373472095314 * r;}\n\nvec3 permute(vec3 x) { return mod(((x*34.0)+1.0)*x, 289.0); }\n\nfloat snoise(vec2 v){\n  const vec4 C = vec4(0.211324865405187, 0.366025403784439,\n           -0.577350269189626, 0.024390243902439);\n  vec2 i  = floor(v + dot(v, C.yy) );\n  vec2 x0 = v -   i + dot(i, C.xx);\n  vec2 i1;\n  i1 = (x0.x > x0.y) ? vec2(1.0, 0.0) : vec2(0.0, 1.0);\n  vec4 x12 = x0.xyxy + C.xxzz;\n  x12.xy -= i1;\n  i = mod(i, 289.0);\n  vec3 p = permute( permute( i.y + vec3(0.0, i1.y, 1.0 ))\n  + i.x + vec3(0.0, i1.x, 1.0 ));\n  vec3 m = max(0.5 - vec3(dot(x0,x0), dot(x12.xy,x12.xy),\n    dot(x12.zw,x12.zw)), 0.0);\n  m = m*m ;\n  m = m*m ;\n  vec3 x = 2.0 * fract(p * C.www) - 1.0;\n  vec3 h = abs(x) - 0.5;\n  vec3 ox = floor(x + 0.5);\n  vec3 a0 = x - ox;\n  m *= 1.79284291400159 - 0.85373472095314 * ( a0*a0 + h*h );\n  vec3 g;\n  g.x  = a0.x  * x0.x  + h.x  * x0.y;\n  g.yz = a0.yz * x12.xz + h.yz * x12.yw;\n  return 130.0 * dot(m, g);\n}\n\nfloat snoise(vec3 v){ \n  const vec2  C = vec2(1.0/6.0, 1.0/3.0) ;\n  const vec4  D = vec4(0.0, 0.5, 1.0, 2.0);\n\n// First corner\n  vec3 i  = floor(v + dot(v, C.yyy) );\n  vec3 x0 =   v - i + dot(i, C.xxx) ;\n\n// Other corners\n  vec3 g = step(x0.yzx, x0.xyz);\n  vec3 l = 1.0 - g;\n  vec3 i1 = min( g.xyz, l.zxy );\n  vec3 i2 = max( g.xyz, l.zxy );\n\n  //  x0 = x0 - 0. + 0.0 * C \n  vec3 x1 = x0 - i1 + 1.0 * C.xxx;\n  vec3 x2 = x0 - i2 + 2.0 * C.xxx;\n  vec3 x3 = x0 - 1. + 3.0 * C.xxx;\n\n// Permutations\n  i = mod(i, 289.0 ); \n  vec4 p = permute( permute( permute( \n             i.z + vec4(0.0, i1.z, i2.z, 1.0 ))\n           + i.y + vec4(0.0, i1.y, i2.y, 1.0 )) \n           + i.x + vec4(0.0, i1.x, i2.x, 1.0 ));\n\n// Gradients\n// ( N*N points uniformly over a square, mapped onto an octahedron.)\n  float n_ = 1.0/7.0; // N=7\n  vec3  ns = n_ * D.wyz - D.xzx;\n\n  vec4 j = p - 49.0 * floor(p * ns.z *ns.z);  //  mod(p,N*N)\n\n  vec4 x_ = floor(j * ns.z);\n  vec4 y_ = floor(j - 7.0 * x_ );    // mod(j,N)\n\n  vec4 x = x_ *ns.x + ns.yyyy;\n  vec4 y = y_ *ns.x + ns.yyyy;\n  vec4 h = 1.0 - abs(x) - abs(y);\n\n  vec4 b0 = vec4( x.xy, y.xy );\n  vec4 b1 = vec4( x.zw, y.zw );\n\n  vec4 s0 = floor(b0)*2.0 + 1.0;\n  vec4 s1 = floor(b1)*2.0 + 1.0;\n  vec4 sh = -step(h, vec4(0.0));\n\n  vec4 a0 = b0.xzyw + s0.xzyw*sh.xxyy ;\n  vec4 a1 = b1.xzyw + s1.xzyw*sh.zzww ;\n\n  vec3 p0 = vec3(a0.xy,h.x);\n  vec3 p1 = vec3(a0.zw,h.y);\n  vec3 p2 = vec3(a1.xy,h.z);\n  vec3 p3 = vec3(a1.zw,h.w);\n\n//Normalise gradients\n  vec4 norm = taylorInvSqrt(vec4(dot(p0,p0), dot(p1,p1), dot(p2, p2), dot(p3,p3)));\n  p0 *= norm.x;\n  p1 *= norm.y;\n  p2 *= norm.z;\n  p3 *= norm.w;\n\n// Mix final noise value\n  vec4 m = max(0.6 - vec4(dot(x0,x0), dot(x1,x1), dot(x2,x2), dot(x3,x3)), 0.0);\n  m = m * m;\n  return 42.0 * dot( m*m, vec4( dot(p0,x0), dot(p1,x1), \n                                dot(p2,x2), dot(p3,x3) ) );\n}\n\nfloat simplexFBM(vec3 x, int octaves) {\n  float v = 0.0;\n  float a = 0.5;\n  vec3 shift = vec3(100);\n  for (int i = 0; i < octaves; ++i) {\n    v += a * snoise(x);\n    x = x * 2.0 + shift;\n    a *= 0.5;\n  }\n  return v;\n}\n\nfloat simplexFBM2D( in vec2 p, int octaves ){\n  float s = 0.0;\n  float m = 0.0;\n  float a = 0.5;\n  \n  for( int i=0; i< octaves; i++ ){\n    s += a * snoise(p);\n    m += a;\n    a *= 0.5;\n    p *= 2.0;\n  }\n  return s/m;\n}\n\nfloat rand(float n){return fract(sin(n) * 43758.5453123);}\n\nfloat noise(float p){\n  float fl = floor(p);\n  float fc = fract(p);\n  return mix(rand(fl), rand(fl + 1.0), fc);\n}\n\nfloat fbm1D(float x) {\n  float v = 0.0;\n  float a = 0.5;\n  float shift = float(100);\n  for (int i = 0; i < 6; ++i) {\n    v += a * noise(x);\n    x = x * 2.0 + shift;\n    a *= 0.5;\n  }\n  return v;\n}\n\nfloat flagSDF(vec3 position) {\n  vec3 p = position;\n\n  float timeStamp = mod(float(u_Time) * 0.1, 40.0);\n  float val = 0.0;\n\n  float jitter = abs(fbm1D(p.y * 17.0)) / 10.0;\n\n  if (timeStamp < 10.0) {\n    val = mix(0.0, 0.2 , timeStamp / 10.0);\n  } else if (timeStamp < 20.0) {\n    val = mix(0.2 , 0.0, (timeStamp - 10.0) / 10.0);\n  } else if (timeStamp < 30.0) {\n    val = mix(0.0, -0.2 , (timeStamp - 20.0) / 10.0);\n  } else if (timeStamp < 40.0) {\n    val = mix(-0.2 , 0.0, (timeStamp - 30.0) / 10.0);\n  }\n\n  float c = cos(val*(p.y - 0.9));\n  float s = sin(val*(p.y - 0.9));\n  mat2  m = mat2(c,s,-s,c);\n  vec3  q = vec3(p.x, m*p.yz);\n\n  float finalValue;\n  \n  float c1;\n  vec3 q1;\n\n  finalValue = sdBox(q, vec3(0.5, 0.9, 0.01));\n\n  mat4 mat = rotationMatrix(vec3(0.0, 0.0, 1.0), 45.0 * DEGREE_TO_RAD);\n  q1 = applyTransform(q - vec3(0, -1.0,0.0), mat);\n  c1 = sdBox(q1, vec3(0.5, 0.5, 0.03));\n  finalValue = max(-c1, finalValue);\n\n  return finalValue;\n}\n\nfloat chestSuprise(vec3 p) {\n  float finalValue;\n\n  finalValue = sdCappedCylinder(p, vec2(0.05, 0.002));\n\n  for(int i=0; i<10; ++i) {\n    float rand = rand(float(i));\n\n    float coinVal = sdCappedCylinder(p - vec3(float(i) * 0.1, rand/10.0, rand), vec2(0.05, 0.002));\n\n    finalValue = min(coinVal, finalValue);\n  }\n\n  for(int i=0; i<10; ++i) {\n    float rand = rand(float(i));\n\n    float coinVal = sdCappedCylinder(p - vec3(float(i) * 0.02, rand/13.0, rand/3.0), vec2(0.05, 0.002));\n\n    finalValue = min(coinVal, finalValue);\n  }\n\n  for(int i=0; i<10; ++i) {\n    float rand = rand(float(i));\n\n    float coinVal = sdCappedCylinder(p - vec3(float(i) * 0.19, rand/13.0, rand), vec2(0.05, 0.002));\n\n    finalValue = min(coinVal, finalValue);\n  }\n\n  return finalValue;\n}\n\n// DIMS: 2.0,2.1,1.7\nfloat sceneSDF(vec3 position) {\n  // float dist = sdEllipsoid(position, vec3(1.0, 0.8, 1.0));\n\n\n  // position = position - vec3(0, 0.4, 0);\n  position = position;\n\n  float finalDistance = 0.0;\n\n  finalDistance = chestSuprise(position);\n\n  // finalDistance = sdCappedCylinder(position, vec2(1.0, 2.0));\n\n  // finalDistance = flagSDF(position);\n\n  // float height = 0.9;\n\n  // float time = float(u_Time);\n\n  // float rads = mix(0.0, 20.0 * DEGREE_TO_RAD, mod(float(u_Time) * 0.08, 10.0) / 10.0 );\n\n  \n  // vec3 q = position - vec3(0.0, 0.0, 0.0);\n  // mat4 m = rotationMatrix(vec3(1.0, 0.0, 0.0), rads);\n  // m[3][0] = 0.0;\n  // m[3][1] = 0.0;\n  // m[3][2] = -0.5;\n  // q = applyTransform(q, m);\n  // q = q - vec3(0.0, 0.0, 0.5);\n\n  // float topPart = topChest(q);\n  // float botPart = botChest(position);\n  // float middlePart = chestMiddle(position);\n\n  // finalDistance = topPart;\n  // // finalDistance = min(topPart, finalDistance);\n  // finalDistance = min(botPart, finalDistance);\n  // finalDistance = min(middlePart, finalDistance);\n\n  // finalDistance = min(bounding, finalDistance);\n\n  // finalDistance = cap;\n  // finalDistance = min(dist, cap);\n\n  // float cap = sdCappedCone\n  return finalDistance;\n}\n\nbool rayMarchScene(in vec3 rayOrigin, in vec3 rayDir, out float finalValue) {\n  float dist = 0.0;\n  float eps = 0.001;\n\n  for (int step = 0; step < 50; ++step) {\n    vec3 position = rayOrigin + dist * rayDir;\n\n    float dt = sceneSDF(position);\n\n    if (dt < eps) {\n      finalValue = dist;\n      return true;\n    }\n\n    dist += dt;\n  }\n\n  return false;\n}\n\nvec2 sphereToUV(vec3 p)\n{\n    float phi = atan(p.z, p.x); // Returns atan(z/x)\n    if(phi < 0.0)\n    {\n        phi += TWO_PI; // [0, TWO_PI] range now\n    }\n\n    float theta = acos(p.y); // [0, PI]\n    return vec2(1.0 - phi / TWO_PI, 1.0 - theta / PI);\n}\n\nbool boxIntersection( vec3 ro, vec3 rd, \n                      vec3 boxSize ) \n{\n    vec3 m = 1.0/rd;\n    vec3 n = m*ro;\n    vec3 k = abs(m)*boxSize;\n  \n    vec3 t1 = -n - k;\n    vec3 t2 = -n + k;\n\n    float tN = max( max( t1.x, t1.y ), t1.z );\n    float tF = min( min( t2.x, t2.y ), t2.z );\n  \n    if( tN > tF || tF < 0.0) return false; // no intersection\n    \n\n    return true;\n}\n\n// for maxsteps\n\n// pos = ro + dist * rd;\n// dt = sdf(pos)\n// if (dt < eps) return dist;\n\n// dist += dt;\n\nvec2 fade(vec2 t) {return t*t*t*(t*(t*6.0-15.0)+10.0);}\n\nfloat cnoise(vec2 P){\n  vec4 Pi = floor(P.xyxy) + vec4(0.0, 0.0, 1.0, 1.0);\n  vec4 Pf = fract(P.xyxy) - vec4(0.0, 0.0, 1.0, 1.0);\n  Pi = mod(Pi, 289.0); // To avoid truncation effects in permutation\n  vec4 ix = Pi.xzxz;\n  vec4 iy = Pi.yyww;\n  vec4 fx = Pf.xzxz;\n  vec4 fy = Pf.yyww;\n  vec4 i = permute(permute(ix) + iy);\n  vec4 gx = 2.0 * fract(i * 0.0243902439) - 1.0; // 1/41 = 0.024...\n  vec4 gy = abs(gx) - 0.5;\n  vec4 tx = floor(gx + 0.5);\n  gx = gx - tx;\n  vec2 g00 = vec2(gx.x,gy.x);\n  vec2 g10 = vec2(gx.y,gy.y);\n  vec2 g01 = vec2(gx.z,gy.z);\n  vec2 g11 = vec2(gx.w,gy.w);\n  vec4 norm = 1.79284291400159 - 0.85373472095314 * \n    vec4(dot(g00, g00), dot(g01, g01), dot(g10, g10), dot(g11, g11));\n  g00 *= norm.x;\n  g01 *= norm.y;\n  g10 *= norm.z;\n  g11 *= norm.w;\n  float n00 = dot(g00, vec2(fx.x, fy.x));\n  float n10 = dot(g10, vec2(fx.y, fy.y));\n  float n01 = dot(g01, vec2(fx.z, fy.z));\n  float n11 = dot(g11, vec2(fx.w, fy.w));\n  vec2 fade_xy = fade(Pf.xy);\n  vec2 n_x = mix(vec2(n00, n01), vec2(n10, n11), fade_xy.x);\n  float n_xy = mix(n_x.x, n_x.y, fade_xy.y);\n  return 2.3 * n_xy;\n}\n\n#define HASHSCALE1 .1031\n\nfloat hash(vec2 p)\n{\n  vec3 p3  = fract(vec3(p.xyx) * HASHSCALE1);\n    p3 += dot(p3, p3.yzx + 19.19);\n    return fract((p3.x + p3.y) * p3.z);\n}\n\nfloat noise( in vec2 x )\n{\n    vec2 p = floor(x);\n    vec2 f = fract(x);\n    f = f*f*(3.0-2.0*f);\n  \n    return mix(mix( hash(p+vec2(0,0)), \n                        hash(p+vec2(1,0)),f.x),\n                   mix( hash(p+vec2(0,1)), \n                        hash(p+vec2(1,1)),f.x),f.y);\n}\n\nfloat fbmTerrain( in vec2 p , float scale){\n  float s = 0.0;\n  float m = 0.0;\n  float a = 0.5;\n\n  vec2 original = p;\n\n  for( int i=0; i< 9; i++ ){\n    s += a * abs(noise(p * scale));\n    m += a;\n    a *= 0.5;\n    p *= 2.0;\n  }\n\n  return (s/m) * 7.0;\n}\n\nfloat mixTerrain(in vec2 p) {\n  float len = length(p);\n  float amt = clamp(len / 8.0, 0.0, 1.0);\n\n  if (len > 10.0) {\n    return 0.0;\n  }\n\n  float noise1 = fbmTerrain(p, 0.25);\n  // float noise2 = fbmTerrain(p, 0.02);\n\n  return mix(0.0, noise1, amt);\n}\n\nvec3 getNormal( const vec3 p, const float eps )\n{\n    vec3 n = vec3( mixTerrain(vec2(p.x-eps,p.z)) - mixTerrain(vec2(p.x+eps,p.z)),\n                         2.0f*eps,\n                         mixTerrain(vec2(p.x,p.z-eps)) - mixTerrain(vec2(p.x,p.z+eps)) );\n    return normalize( n );\n}\n\nbool castRay( const vec3 ro, const vec3 rd, out float resT, out float height )\n{\n    float delt = 0.01f;\n    const float mint = 0.001f;\n    const float maxt = 15.0f;\n    float lh = 0.0f;\n    float ly = 0.0f;\n    for( float t = mint; t < maxt; t += delt )\n    {\n        vec3  p = ro + rd * t;\n        float h = mixTerrain( p.xz );\n        if( p.y < h )\n        {\n            height = h;\n            // interpolate the intersection distance\n            resT = t - delt + delt*(lh-ly)/(p.y-ly-h+lh);\n            return true;\n        }\n        // allow the error to be proportinal to the distance\n        delt = 0.01f*t;\n        lh = h;\n        ly = p.y;\n    }\n    return false;\n}\n\nfloat softshadow( in vec3 ro, in vec3 rd, float mint, float maxt, float k )\n{\n    float res = 1.0;\n    for( float t=mint; t < maxt; )\n    {\n        float h = sceneSDF(ro + rd*t);\n        if( h<0.001 )\n            return 0.0;\n        res = min( res, k*h/t );\n        t += h;\n    }\n    return res;\n}\n\nconst vec3 lightPosition = vec3(-20, 15, 20);\nconst vec3 lightColor = vec3(254, 254, 180) / 255.0;\n\nbool processTerrain(const vec3 rayOrigin, const vec3 rayDir, out float resultT, out vec3 worldPosition, out vec3 worldNormal) {\n  float value = 0.0;\n  float height = 0.0;\n  bool result = castRay(rayOrigin, rayDir, value, height);\n\n  if (result) {\n    vec3 terrainPosition = rayOrigin + value * rayDir;\n    vec3 norm = getNormal(terrainPosition, 0.001);\n\n    worldPosition = terrainPosition;\n    worldNormal = norm;\n    resultT = value;\n\n    float noise = (simplexFBM(worldPosition * 0.7, 8) + 1.0) / 2.0;\n    gMaterialId = 3;\n\n    if (noise > 0.6 && height > 0.4) {\n      gMaterialId = 4;\n    }\n\n    return true;\n  }\n\n  return false;\n}\n\n// Uncharted 2 Tonemapping made by John Hable, filmicworlds.com\nvec3 uc2Tonemap(vec3 x)\n{\n   return ((x*(0.15*x+0.1*0.5)+0.2*0.02)/(x*(0.15*x+0.5)+0.2*0.3))-0.02/0.3;\n}\n\nvec3 tonemap(vec3 x, float exposure, float invGamma, float whiteBalance) {\n    vec3 white = vec3(whiteBalance);\n    vec3 color = uc2Tonemap(exposure * x);\n    vec3 whitemap = 1.0 / uc2Tonemap(white);\n    color *= whitemap;\n    return pow(color, vec3(invGamma));\n}\n\nvoid main() {\n  vec4 finalColor = vec4(0.0, 0.0, 0.0, 1.0);\n  gMaterialId = 0;\n  sMaterialId = 0;\n\n  float ka = 0.2;\n  float kd = 0.5;\n  float ks = 0.3;\n\n  vec3 lightColor = vec3(1,1,0);\n\n  vec2 ndc = (gl_FragCoord.xy / vec2(u_Dimensions)) * 2.0 - 1.0;\n\n  // Find a point on the Far Plane\n  vec4 pointInFarPlane = vec4(ndc.xy, 1, 1);\n  pointInFarPlane *= 1000.0;\n  vec4 worldSpacePoint = u_InvViewProj * pointInFarPlane;\n\n  // Ray from Camera to Far Plane World Point\n  vec3 rayDir = normalize(worldSpacePoint.xyz - u_Eye.xyz);\n  vec3 rayOrigin = u_Eye.xyz;\n\n  vec3 terrainPosition;\n  vec3 terrainNormal;\n  float terrainParam = 999.0;\n\n  bool sceneTest = boxIntersection(rayOrigin, rayDir, vec3(2.0,2.1,1.7));\n  bool sceneIntersection = false;\n\n  // bool terrainTest = processTerrain(rayOrigin, rayDir, terrainParam, terrainPosition, terrainNormal);\n  float distance = -1.0;\n\n  bool terrainTest = false;\n\n\n  if (sceneTest) {\n    sceneIntersection = rayMarchScene(rayOrigin, rayDir, distance);\n  }\n\n  vec3 finalPosition;\n  vec3 finalNormal;\n\n  if (sceneTest && sceneIntersection) {\n    finalPosition = rayOrigin + distance * rayDir;\n\n    gMaterialId = sMaterialId;\n\n    float eps = 0.001;\n    float dx = sceneSDF(finalPosition + vec3(eps, 0, 0)) -\n               sceneSDF(finalPosition - vec3(eps, 0, 0));\n    float dy = sceneSDF(finalPosition + vec3(0, eps, 0)) -\n               sceneSDF(finalPosition - vec3(0, eps, 0));\n    float dz = sceneSDF(finalPosition + vec3(0, 0, eps)) -\n               sceneSDF(finalPosition - vec3(0, 0, eps));\n\n    finalNormal = normalize(vec3(dx, dy, dz));\n\n  float diffuseTerm =\n      max(0.0, dot(normalize(finalNormal), normalize(lightPosition)));\n\n  float specularTerm;\n  vec3 materialColor;\n\n  Material activeMaterial = gGoldMaterial;\n\n  materialColor = activeMaterial.baseColor;\n\n  if (activeMaterial.useEnvMap) {\n    vec3 incomingRay = normalize(u_Eye.xyz - finalPosition);\n    vec3 reflectedDirection = normalize(reflect(incomingRay, finalNormal));\n    vec2 uvs = sphereToUV(reflectedDirection);\n\n    materialColor += vec3(texture(u_Texture0, uvs)) * activeMaterial.reflectivity;\n  }\n\n  float noise = (1.0 - abs(simplexFBM2D(finalPosition.xz * 0.13 + vec2(float(u_Time) * 0.0005, float(u_Time) * 0.0007), 8))) + 0.1;\n  // float lightIntensity = clamp(noise, 0.0, 1.0);\n\n  vec3 lightIntensity = vec3(1.0);\n\n  // float val;\n  // if (rayMarchScene(finalPosition + 0.01 * finalNormal, normalize(lightPosition - finalPosition), val)) {\n  //   lightIntensity = 0.0;\n  // }\n  float shadow = softshadow(finalPosition + 0.01 * finalNormal, normalize(lightPosition - finalPosition), 0.01, 10.0, 4.0);\n  vec3 cshadow = pow(vec3(shadow), vec3(1.0, 1.2, 1.5));\n  // materialColor = materialColor * cshadow;\n\n  // out_Col = vec4(vec3(noise), 1.0f);\n  // return;\n\n  float sun = clamp( dot( finalNormal, normalize(lightPosition - finalPosition) ), 0.0, 1.0 );\n  lightIntensity  = sun * vec3(1.64,1.27,0.99) * cshadow;\n\n  if (diffuseTerm > 0.0 && activeMaterial.specPower > 0.0) {\n    /*----------  Blinn Phong  ----------*/\n    vec3 viewVec = normalize(u_Eye.xyz - finalPosition);\n    vec3 lightVec = normalize(lightPosition - finalPosition);\n\n    // vec3 H = normalize(vec3(viewVec + lightVec) / 2.0f);\n    // specularTerm = max(pow(dot(H, finalNormal), activeMaterial.specPower), 0.0);\n\n    vec3 R = normalize(reflect(-lightVec, finalNormal));\n    specularTerm = pow(max(0.0, dot(R, viewVec)), activeMaterial.specPower);\n  }\n\n  vec3 fragColor =\n      (ka * materialColor) + lightIntensity * ((kd * materialColor * diffuseTerm) + ks * specularTerm);\n\n\n float whiteBalance = 9.2;\n float exposure = 10.0;\n float invGamma = 1.0 / 0.8;\n\n fragColor = tonemap(fragColor , exposure, invGamma, whiteBalance);\n\n  finalColor = vec4(fragColor, 1.0f);\n}\n\n  out_Col = finalColor;\n}\n"
 
 /***/ })
 /******/ ]);
