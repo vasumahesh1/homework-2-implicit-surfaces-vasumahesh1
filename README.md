@@ -38,6 +38,7 @@ There is a control to open and close the chest. I wanted to put a banana in the 
 
 I added a 2D fbm'ed noise and used that to create cloud animation effect, it was a minor change, but it adds a good amount of life to the scene.
 
+![](./readme_resources/clouds.png)
 
 ---
 
