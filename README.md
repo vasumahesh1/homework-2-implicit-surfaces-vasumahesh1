@@ -4,6 +4,8 @@
 
 ![](./readme_resources/title_image.png)
 
+[Demo URL](https://vasumahesh1.github.io/homework-2-implicit-surfaces-vasumahesh1/)
+
 ## Timelapse
 
 ![](./readme_resources/process.gif)
