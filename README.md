@@ -1,5 +1,11 @@
 # Le Chest - Homework 2
 
+-------------
+
+### [Video / Portfolio Link](http://www.codeplaysleep.com/portfolio/ray-marched-sdf-scene/)
+
+-------------
+
 ![](./readme_resources/proc_chest_gif_2.gif)
 
 ![](./readme_resources/title_image.png)
